@@ -11,7 +11,7 @@
 #import <MapKit/MKMapView.h>
 
 #define LC_URL              "http://cdn.livechatinc.com/app/mobile/urls.json"
-#define LC_LICENSE          "1076415"
+#define LC_LICENSE          "3498581"
 #define LC_CHAT_GROUP       "0"
 
 @interface LCCHomeViewController ()
