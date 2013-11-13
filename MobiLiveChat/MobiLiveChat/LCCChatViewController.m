@@ -32,12 +32,14 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setTitle:@"Chat"];
     
-    self.chatView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    
+    self.chatView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     [self.chatView setAlpha:0.0];
     [self.chatView setDelegate:self];
     [self.view addSubview:self.chatView];
     
-    self.indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    self.indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     [self.indicator setColor:[UIColor blackColor]];
     [self.indicator startAnimating];
     [self.view addSubview:self.indicator];

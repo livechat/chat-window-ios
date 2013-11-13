@@ -34,7 +34,8 @@
 {
     [super viewDidLoad];
     
-    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     [self.view addSubview:mapView];
     
     UIBarButtonItem *chatButton = [[UIBarButtonItem alloc]
