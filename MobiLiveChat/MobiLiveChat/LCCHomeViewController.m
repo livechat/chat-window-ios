@@ -10,7 +10,7 @@
 #import "AFJSONRequestOperation.h"
 #import <MapKit/MKMapView.h>
 
-#define LC_URL              "http://cdn.livechatinc.com/app/mobile/urls.json"
+#define LC_URL              "https://cdn.livechatinc.com/app/mobile/urls.json"
 #define LC_LICENSE          "3498581"
 #define LC_CHAT_GROUP       "0"
 
@@ -82,7 +82,7 @@
 
 - (NSString *)prepareUrl:(NSString *)url
 {
-    NSMutableString *string = [NSMutableString stringWithFormat:@"http://%@", url];
+    NSMutableString *string = [NSMutableString stringWithFormat:@"https://%@", url];
     
     [string replaceOccurrencesOfString:@"{%license%}"
                             withString:@LC_LICENSE
