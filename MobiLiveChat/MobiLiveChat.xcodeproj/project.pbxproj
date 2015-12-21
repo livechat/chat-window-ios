@@ -31,6 +31,7 @@
 		4D27514518324E5000CAA53D /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D27513A18324E5000CAA53D /* AFURLConnectionOperation.m */; };
 		4D27514618324E5000CAA53D /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D27513C18324E5000CAA53D /* AFXMLRequestOperation.m */; };
 		4D27514718324E5000CAA53D /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D27513E18324E5000CAA53D /* UIImageView+AFNetworking.m */; };
+		5856D8A61C282B2B004DBA86 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5856D8A51C282B2B004DBA86 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		4D27513C18324E5000CAA53D /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		4D27513D18324E5000CAA53D /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		4D27513E18324E5000CAA53D /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		5856D8A51C282B2B004DBA86 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				4D27512618324DC600CAA53D /* LCCHomeViewController.m */,
 				4D27512818324DE500CAA53D /* LCCChatViewController.h */,
 				4D27512918324DE500CAA53D /* LCCChatViewController.m */,
+				5856D8A51C282B2B004DBA86 /* Launch Screen.storyboard */,
 			);
 			path = MobiLiveChat;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5856D8A61C282B2B004DBA86 /* Launch Screen.storyboard in Resources */,
 				4D2750FF18324D8A00CAA53D /* InfoPlist.strings in Resources */,
 				4D27510718324D8A00CAA53D /* Images.xcassets in Resources */,
 			);
@@ -367,8 +371,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -382,7 +384,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -406,8 +407,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -421,7 +420,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -438,7 +436,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobiLiveChat/MobiLiveChat-Prefix.pch";
 				INFOPLIST_FILE = "MobiLiveChat/MobiLiveChat-Info.plist";
@@ -452,7 +449,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobiLiveChat/MobiLiveChat-Prefix.pch";
 				INFOPLIST_FILE = "MobiLiveChat/MobiLiveChat-Info.plist";
