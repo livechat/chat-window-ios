@@ -7,7 +7,6 @@
 //
 
 #import "LCCHomeViewController.h"
-#import "AFJSONRequestOperation.h"
 #import <MapKit/MKMapView.h>
 
 #define LC_URL              "https://cdn.livechatinc.com/app/mobile/urls.json"
@@ -59,22 +58,25 @@
 
 - (void)requestUrl
 {
-    void(^successHandler)(NSURLRequest*, NSHTTPURLResponse*, id) = ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        if ([JSON isKindOfClass:[NSDictionary class]]) {
-            self.chatURL = [self prepareUrl:JSON[@"chat_url"]];
-        }
-    };
-    
-    void(^failureHandler)(NSURLRequest*, NSHTTPURLResponse*, NSError*, id) = ^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"%@", error);
-    };
-    
+    NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:@LC_URL];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:successHandler
-                                                                                        failure:failureHandler];
-    [operation start];
+    [[session dataTaskWithURL:url
+            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                if (!error) {
+                    NSError *jsonError;
+                    NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data
+                                                                         options:NSJSONReadingAllowFragments
+                                                                           error:&jsonError];
+                    
+                    if ([JSON isKindOfClass:[NSDictionary class]] && [JSON valueForKey:@"chat_url"] != nil) {
+                        self.chatURL = [self prepareUrl:JSON[@"chat_url"]];
+                    } else if (jsonError) {
+                        NSLog(@"%@", jsonError);
+                    }
+                } else {
+                    NSLog(@"%@", error);
+                }
+            }] resume];
 }
 
 #pragma mark -
