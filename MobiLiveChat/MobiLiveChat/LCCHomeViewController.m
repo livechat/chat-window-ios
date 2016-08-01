@@ -7,11 +7,12 @@
 //
 
 #import "LCCHomeViewController.h"
+#import "LCCChatNavigationController.h"
 #import <MapKit/MKMapView.h>
 
 #define LC_URL              "https://cdn.livechatinc.com/app/mobile/urls.json"
-#define LC_LICENSE          "3498581"
-#define LC_CHAT_GROUP       "0"
+#define LC_LICENSE          "1520"
+#define LC_CHAT_GROUP       "88"
 
 @interface LCCHomeViewController ()
 
@@ -103,11 +104,10 @@
 #pragma mark Actions
 
 - (void)startChat:(UIButton*)button {
-    
     if (!self.chatViewController) {
         self.chatViewController = [[LCCChatViewController alloc] initWithChatUrl:self.chatURL];
     }
-    
-    [self.navigationController pushViewController:self.chatViewController animated:YES];
+    LCCChatNavigationController *navigationController = [[LCCChatNavigationController alloc] initWithRootViewController:self.chatViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 @end

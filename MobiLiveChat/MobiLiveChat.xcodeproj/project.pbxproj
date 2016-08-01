@@ -23,6 +23,7 @@
 		4D27512718324DC600CAA53D /* LCCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D27512618324DC600CAA53D /* LCCHomeViewController.m */; };
 		4D27512A18324DE500CAA53D /* LCCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D27512918324DE500CAA53D /* LCCChatViewController.m */; };
 		5856D8A61C282B2B004DBA86 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5856D8A51C282B2B004DBA86 /* Launch Screen.storyboard */; };
+		588B29641D4F604700DC2B71 /* LCCChatNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588B29631D4F604700DC2B71 /* LCCChatNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		4D27512818324DE500CAA53D /* LCCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCChatViewController.h; sourceTree = "<group>"; };
 		4D27512918324DE500CAA53D /* LCCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCChatViewController.m; sourceTree = "<group>"; };
 		5856D8A51C282B2B004DBA86 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		588B29621D4F604700DC2B71 /* LCCChatNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCChatNavigationController.h; sourceTree = "<group>"; };
+		588B29631D4F604700DC2B71 /* LCCChatNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCChatNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				4D27512818324DE500CAA53D /* LCCChatViewController.h */,
 				4D27512918324DE500CAA53D /* LCCChatViewController.m */,
 				5856D8A51C282B2B004DBA86 /* Launch Screen.storyboard */,
+				588B29621D4F604700DC2B71 /* LCCChatNavigationController.h */,
+				588B29631D4F604700DC2B71 /* LCCChatNavigationController.m */,
 			);
 			path = MobiLiveChat;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D27510118324D8A00CAA53D /* main.m in Sources */,
+				588B29641D4F604700DC2B71 /* LCCChatNavigationController.m in Sources */,
 				4D27510518324D8A00CAA53D /* LCCAppDelegate.m in Sources */,
 				4D27512718324DC600CAA53D /* LCCHomeViewController.m in Sources */,
 				4D27512A18324DE500CAA53D /* LCCChatViewController.m in Sources */,

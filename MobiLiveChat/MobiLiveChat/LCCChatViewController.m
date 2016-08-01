@@ -7,6 +7,7 @@
 //
 
 #import "LCCChatViewController.h"
+#import "LCCChatNavigationController.h"
 
 @interface LCCChatViewController ()
 
@@ -32,6 +33,14 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self setTitle:@"Chat"];
     
+    UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close"
+                                                                        style:UIBarButtonItemStyleDone
+                                                                       target:self
+                                                                       action:@selector(close:)];
+    
+    [self.navigationItem setLeftBarButtonItem:closeButtonItem
+                                     animated:NO];
+    
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     
     self.chatView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
@@ -53,6 +62,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)close:(id)sender {
+    [((LCCChatNavigationController *)self.navigationController) trueDismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
