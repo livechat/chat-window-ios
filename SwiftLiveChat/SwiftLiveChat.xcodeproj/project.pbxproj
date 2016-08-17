@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		589080011D648EF100D3F8AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589080001D648EF100D3F8AF /* AppDelegate.swift */; };
+		589080031D648EF100D3F8AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 589080021D648EF100D3F8AF /* Assets.xcassets */; };
+		589080061D648EF100D3F8AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589080041D648EF100D3F8AF /* LaunchScreen.storyboard */; };
+		5890800E1D648F4200D3F8AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890800D1D648F4200D3F8AF /* HomeViewController.swift */; };
+		589080101D64926200D3F8AF /* ChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890800F1D64926200D3F8AF /* ChatNavigationController.swift */; };
+		589080121D64A45500D3F8AF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589080111D64A45500D3F8AF /* ChatViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		58907FFD1D648EF100D3F8AF /* SwiftLiveChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLiveChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		589080001D648EF100D3F8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		589080021D648EF100D3F8AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		589080051D648EF100D3F8AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		589080071D648EF100D3F8AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5890800D1D648F4200D3F8AF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5890800F1D64926200D3F8AF /* ChatNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNavigationController.swift; sourceTree = "<group>"; };
+		589080111D64A45500D3F8AF /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58907FFA1D648EF100D3F8AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58907FF41D648EF100D3F8AF = {
+			isa = PBXGroup;
+			children = (
+				58907FFF1D648EF100D3F8AF /* SwiftLiveChat */,
+				58907FFE1D648EF100D3F8AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58907FFE1D648EF100D3F8AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58907FFD1D648EF100D3F8AF /* SwiftLiveChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58907FFF1D648EF100D3F8AF /* SwiftLiveChat */ = {
+			isa = PBXGroup;
+			children = (
+				589080001D648EF100D3F8AF /* AppDelegate.swift */,
+				589080021D648EF100D3F8AF /* Assets.xcassets */,
+				589080041D648EF100D3F8AF /* LaunchScreen.storyboard */,
+				589080071D648EF100D3F8AF /* Info.plist */,
+				5890800D1D648F4200D3F8AF /* HomeViewController.swift */,
+				5890800F1D64926200D3F8AF /* ChatNavigationController.swift */,
+				589080111D64A45500D3F8AF /* ChatViewController.swift */,
+			);
+			path = SwiftLiveChat;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58907FFC1D648EF100D3F8AF /* SwiftLiveChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5890800A1D648EF100D3F8AF /* Build configuration list for PBXNativeTarget "SwiftLiveChat" */;
+			buildPhases = (
+				58907FF91D648EF100D3F8AF /* Sources */,
+				58907FFA1D648EF100D3F8AF /* Frameworks */,
+				58907FFB1D648EF100D3F8AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftLiveChat;
+			productName = SwiftLiveChat;
+			productReference = 58907FFD1D648EF100D3F8AF /* SwiftLiveChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58907FF51D648EF100D3F8AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "LiveChat Inc.";
+				TargetAttributes = {
+					58907FFC1D648EF100D3F8AF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 58907FF81D648EF100D3F8AF /* Build configuration list for PBXProject "SwiftLiveChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58907FF41D648EF100D3F8AF;
+			productRefGroup = 58907FFE1D648EF100D3F8AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58907FFC1D648EF100D3F8AF /* SwiftLiveChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58907FFB1D648EF100D3F8AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				589080031D648EF100D3F8AF /* Assets.xcassets in Resources */,
+				589080061D648EF100D3F8AF /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58907FF91D648EF100D3F8AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				589080011D648EF100D3F8AF /* AppDelegate.swift in Sources */,
+				5890800E1D648F4200D3F8AF /* HomeViewController.swift in Sources */,
+				589080121D64A45500D3F8AF /* ChatViewController.swift in Sources */,
+				589080101D64926200D3F8AF /* ChatNavigationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		589080041D648EF100D3F8AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				589080051D648EF100D3F8AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		589080081D648EF100D3F8AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		589080091D648EF100D3F8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5890800B1D648EF100D3F8AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwiftLiveChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.livechatinc.demo.SwiftLiveChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5890800C1D648EF100D3F8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SwiftLiveChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.livechatinc.demo.SwiftLiveChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58907FF81D648EF100D3F8AF /* Build configuration list for PBXProject "SwiftLiveChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				589080081D648EF100D3F8AF /* Debug */,
+				589080091D648EF100D3F8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5890800A1D648EF100D3F8AF /* Build configuration list for PBXNativeTarget "SwiftLiveChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5890800B1D648EF100D3F8AF /* Debug */,
+				5890800C1D648EF100D3F8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58907FF51D648EF100D3F8AF /* Project object */;
+}
