@@ -58,12 +58,6 @@
     [self.chatView loadRequest:request];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)close:(id)sender {
     [((LCCChatNavigationController *)self.navigationController) trueDismissViewControllerAnimated:YES completion:nil];
 }

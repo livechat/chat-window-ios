@@ -48,12 +48,6 @@
     [self requestUrl];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark -
 #pragma mark Tasks
 
