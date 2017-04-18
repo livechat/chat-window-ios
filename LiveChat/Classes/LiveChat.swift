@@ -192,24 +192,5 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
 private class PassThroughWindow: UIWindow {
     override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         return super.hitTest(point, with: event)
-        
-//        if let keyWindow = UIApplication.shared.keyWindow {
-//            print(keyWindow)
-//        }
-//        
-//        
-//        let lc = Manager.sharedInstance.overlayViewController.chatView
-//        if lc.window != nil && lc.window == self {
-//            let convertedPoint = convert(point, to: lc)
-//            if lc.point(inside: convertedPoint, with: event) {
-//                return lc.hitTest(convertedPoint, with: event)
-//            }
-//        }
-//        
-//        if let keyWindow = UIApplication.shared.keyWindow, keyWindow != self {
-//            return keyWindow.hitTest(point, with: event)
-//        } else {
-//            return super.hitTest(point, with: event)
-//        }
     }
 }

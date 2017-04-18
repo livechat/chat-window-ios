@@ -114,7 +114,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         webView.frame = webViewFrame(forKeyboardFrame: keyboardFrame, topInset: topInset())
         loadingView.frame = webView.frame
     }
-
+    
     // MARK: Public Methods
     
     func presentChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
@@ -439,7 +439,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         if navigationAction.navigationType == .linkActivated  {
             if let URL = navigationAction.request.url ,
                 UIApplication.shared.canOpenURL(URL) {
-
+                
                 if let delegate = self.delegate {
                     delegate.handle(URL: URL)
                 } else {
