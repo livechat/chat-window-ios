@@ -101,6 +101,11 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         nc.addObserver(self, selector: #selector(keyboardDidChangeFrameNotification), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
+        
+        
+        nc.addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: NSNotification.Name.UIApplicationDidBecomeActive
+            , object: nil)
+        nc.addObserver(self, selector: #selector(applicationWillResignActiveNotification), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
     }
     
     deinit {
@@ -210,6 +215,20 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
             return true
         } else {
             return false
+        }
+    }
+    
+    // MARK: Application state management
+    
+    func applicationDidBecomeActiveNotification(_ notification: Notification) {
+        if self.webView.alpha > 0 {
+            self.webViewBridge?.postFocusEvent()
+        }
+    }
+    
+    func applicationWillResignActiveNotification(_ notification: Notification) {
+        if self.webView.alpha > 0 {
+            self.webViewBridge?.postBlurEvent()
         }
     }
     
