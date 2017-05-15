@@ -33,20 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LiveChatDelegate {
     // MARK: LiveChatDelegate
     
     func received(message: LiveChatMessage) {
-        // Notifying user
-        let alert = UIAlertController(title: "Support", message: message.text, preferredStyle: .alert)
-        let chatAction = UIAlertAction(title: "Go to Chat", style: .default) { alert in
-            // Presenting chat if not presented:
-            if !LiveChat.isChatPresented {
-                LiveChat.presentChat()
+        if (!LiveChat.isChatPresented) {
+            // Notifying user
+            let alert = UIAlertController(title: "Support", message: message.text, preferredStyle: .alert)
+            let chatAction = UIAlertAction(title: "Go to Chat", style: .default) { alert in
+                // Presenting chat if not presented:
+                if !LiveChat.isChatPresented {
+                    LiveChat.presentChat()
+                }
             }
+            alert.addAction(chatAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(cancelAction)
+            
+            window?.rootViewController?.present(alert, animated: true, completion: nil)
         }
-        alert.addAction(chatAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(cancelAction)
-        
-        window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
     func handle(URL: URL) {
