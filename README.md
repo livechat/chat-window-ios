@@ -115,6 +115,10 @@ func handle(URL: URL) {
 }
 ```
 
+### Sending Photos from device library
+
+If you have file sharing enabled for visitors, you should provide usage description by including `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`) key in your `Info.plist` file to avoid crash on iOS 10 or higher.
+
 ## Example Apps
 
 Example apps can be found in the `Examples` folder. Samples for both Swift and Objective-C are provided.
