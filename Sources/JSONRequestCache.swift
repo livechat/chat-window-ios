@@ -11,7 +11,8 @@ import Foundation
 class JSONRequestCache {
     var templateURL : String?
     var currentTask : URLSessionDataTask?
-    
+
+    @discardableResult
     func request(withCompletionHandler completionHandler: @escaping (String?, Error?) -> Void) -> URLSessionDataTask? {
         self.currentTask?.cancel()
         

@@ -2,6 +2,7 @@
 
 LiveChat for iOS allows you to integrate [LiveChat](https://livechatinc.com) Chat Window into your iOS app.
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 [![Version](https://img.shields.io/cocoapods/v/LiveChat.svg?style=flat)](http://cocoapods.org/pods/LiveChat)
 [![License](https://img.shields.io/cocoapods/l/LiveChat.svg?style=flat)](http://cocoapods.org/pods/LiveChat)
 [![Platform](https://img.shields.io/cocoapods/p/LiveChat.svg?style=flat)](http://cocoapods.org/pods/LiveChat)
@@ -13,30 +14,22 @@ LiveChat for iOS allows you to integrate [LiveChat](https://livechatinc.com) Cha
 
 ## Installation
 
+### Carthage
+
+If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add LiveChat to your `Cartfile`. 
+
+```
+github "livechat/chat-window-ios" ~> 2.0
+```
+
+Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have include it in your Carthage framework copying build phase.
+
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+If you use [CocoaPods](http://cocoapods.org) to manage your dependencies, simply add LiveChat to your `Podfile`.
 
-```bash
-$ gem install cocoapods
 ```
-
-To integrate LiveChat into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '9.0'
-use_frameworks!
-
-target '<Your Target Name>' do
 pod 'LiveChat', '~> 2.0'
-end
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
 ```
 
 ### Manual Installation

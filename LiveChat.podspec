@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/livechat/chat-window-ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-  s.source_files = 'LiveChat/Classes/**/*'
-  s.resources = 'LiveChat/Assets/**/*'
+  s.source_files = 'Sources/*.{swift}'
+  s.resources = 'Sources/*.{js}'
   s.frameworks = 'UIKit', 'WebKit'
 end
