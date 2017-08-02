@@ -395,7 +395,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
                                 self.webView.evaluateJavaScript("navigator.userAgent") {[weak self] (result, error) in
                                     DispatchQueue.main.async(execute: { [weak self] in
                                         if let `self` = self, let userAgent = result as? String {
-                                            self.webView.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.1"
+                                            self.webView.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.2"
                                             
                                             if LiveChatState.isChatOpenedBefore() {
                                                 self.webView.load(request)
