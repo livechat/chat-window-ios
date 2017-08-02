@@ -71,7 +71,7 @@ class WebViewBridge {
             }
             let authorName = authorNameObj as! String
             
-            let liveChatMessage = LiveChatMessage(id: messageId, text: text, date: Date(timeIntervalSince1970: timestamp), authorName: authorName)
+            let liveChatMessage = LiveChatMessage(id: messageId, text: text, date: Date(timeIntervalSince1970: timestamp), authorName: authorName, rawMessage: message)
             
             delegate?.received(message: liveChatMessage)
         } else if messageType == "hideChatWindow" {

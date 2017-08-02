@@ -13,12 +13,14 @@ public class LiveChatMessage : NSObject {
     public let text: String
     public let date: Date
     public let authorName: String
+    public let rawMessage: NSDictionary
     
-    init(id: String, text: String, date: Date, authorName: String) {
+    init(id: String, text: String, date: Date, authorName: String, rawMessage: NSDictionary) {
         self.id = id
         self.text = text
         self.date = date
         self.authorName = authorName
+        self.rawMessage = rawMessage
         
         super.init()
     }
