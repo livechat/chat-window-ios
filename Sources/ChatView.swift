@@ -368,48 +368,52 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
             loadingView.startAnimation()
             
             jsonCache.request(withCompletionHandler: { [weak self] (templateURL, error) in
-                if let `self` = self {
-                    if let error = error {
-                        self.displayLoadingError(withMessage: error.localizedDescription)
-                        return
-                    }
-                    
-                    guard let templateURL = templateURL else {
-                        self.displayLoadingError(withMessage: "Template URL not provided.")
-                        return
-                    }
-                    
-                    guard let configuration = self.configuration else {
-                        self.displayLoadingError(withMessage: "Configuration not provided.")
-                        return
-                    }
-                    
-                    let url = buildUrl(templateURL: templateURL, configuration: configuration, customVariables: self.customVariables, maxLength: 2000)
-                    
-                    if let url = url {
-                        let request = URLRequest(url: url)
+                DispatchQueue.main.async(execute: { [weak self] in
+                    if let `self` = self {
+                        if let error = error {
+                            self.displayLoadingError(withMessage: error.localizedDescription)
+                            return
+                        }
                         
-                        if #available(iOS 9.0, *) {
-                            // Changing UserAgent string:
-                            self.webView.evaluateJavaScript("navigator.userAgent") {[weak self] (result, error) in
-                                if let `self` = self, let userAgent = result as? String {
-                                    self.webView.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.0"
-                                    
-                                    if LiveChatState.isChatOpenedBefore() {
-                                        self.webView.load(request)
-                                    }
+                        guard let templateURL = templateURL else {
+                            self.displayLoadingError(withMessage: "Template URL not provided.")
+                            return
+                        }
+                        
+                        guard let configuration = self.configuration else {
+                            self.displayLoadingError(withMessage: "Configuration not provided.")
+                            return
+                        }
+                        
+                        let url = buildUrl(templateURL: templateURL, configuration: configuration, customVariables: self.customVariables, maxLength: 2000)
+                        
+                        if let url = url {
+                            let request = URLRequest(url: url)
+                            
+                            if #available(iOS 9.0, *) {
+                                // Changing UserAgent string:
+                                self.webView.evaluateJavaScript("navigator.userAgent") {[weak self] (result, error) in
+                                    DispatchQueue.main.async(execute: { [weak self] in
+                                        if let `self` = self, let userAgent = result as? String {
+                                            self.webView.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.1"
+                                            
+                                            if LiveChatState.isChatOpenedBefore() {
+                                                self.webView.load(request)
+                                            }
+                                        }
+                                    })
+                                }
+                            } else {
+                                if LiveChatState.isChatOpenedBefore() {
+                                    self.webView.load(request)
                                 }
                             }
                         } else {
-                            if LiveChatState.isChatOpenedBefore() {
-                                self.webView.load(request)
-                            }
+                            print("error: Invalid url")
+                            self.displayLoadingError(withMessage: "Invalid url")
                         }
-                    } else {
-                        print("error: Invalid url")
-                        self.displayLoadingError(withMessage: "Invalid url")
                     }
-                }
+                })
             })
         }
     }
