@@ -502,7 +502,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         }
         
         UIView.animate(withDuration: 0.3,
-                       delay: 0.4,
+                       delay: 1.0,
                        options: UIViewAnimationOptions(),
                        animations: {
                         self.loadingView.alpha = 0
