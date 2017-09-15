@@ -84,6 +84,8 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         webView.scrollView.minimumZoomScale = 1.0
         webView.scrollView.maximumZoomScale = 1.0
         webView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        webView.isOpaque = false
+        webView.backgroundColor = UIColor.clear
         webView.frame = webViewFrame(forKeyboardFrame: keyboardFrame, topInset: topInset())
         addSubview(webView)
         
