@@ -222,13 +222,13 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     
     // MARK: Application state management
     
-    func applicationDidBecomeActiveNotification(_ notification: Notification) {
+    @objc func applicationDidBecomeActiveNotification(_ notification: Notification) {
         if self.webView.alpha > 0 {
             self.webViewBridge?.postFocusEvent()
         }
     }
     
-    func applicationWillResignActiveNotification(_ notification: Notification) {
+    @objc func applicationWillResignActiveNotification(_ notification: Notification) {
         if self.webView.alpha > 0 {
             self.webViewBridge?.postBlurEvent()
         }
@@ -236,7 +236,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     
     // MARK: Keyboard frame changes
     
-    func keyboardWillChangeFrameNotification(_ notification: Notification) {
+    @objc func keyboardWillChangeFrameNotification(_ notification: Notification) {
         let notification = KeyboardNotification(notification)
         let keyboardScreenEndFrame = notification.screenFrameEnd
         keyboardFrame = keyboardScreenEndFrame
@@ -249,7 +249,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         }
     }
     
-    func keyboardDidChangeFrameNotification(_ notification: Notification) {
+    @objc func keyboardDidChangeFrameNotification(_ notification: Notification) {
         let notification = KeyboardNotification(notification)
         keyboardFrame = notification.screenFrameEnd
         

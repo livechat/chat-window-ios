@@ -10,7 +10,7 @@ import Foundation
 import WebKit
 
 class HideInputAccessoryHelper : NSObject {
-    func inputAccessoryView() -> AnyObject? {
+    @objc func inputAccessoryView() -> AnyObject? {
         return nil
     }
     
@@ -27,15 +27,15 @@ class HideInputAccessoryHelper : NSObject {
             var newClass : AnyClass? = NSClassFromString(noInputAccessoryViewClassName)
             
             if newClass == nil {
-                let uiViewClass : AnyClass = object_getClass(targetView)
+                let uiViewClass : AnyClass = object_getClass(targetView)!
                 newClass = objc_allocateClassPair(uiViewClass, noInputAccessoryViewClassName.cString(using: String.Encoding.ascii)!, 0)
             }
             
             let originalMethod = class_getInstanceMethod(HideInputAccessoryHelper.self, #selector(HideInputAccessoryHelper.inputAccessoryView))
             
-            class_addMethod(newClass!.self, #selector(HideInputAccessoryHelper.inputAccessoryView), method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+            class_addMethod(newClass!.self, #selector(HideInputAccessoryHelper.inputAccessoryView), method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
             
-            object_setClass(targetView, newClass)
+            object_setClass(targetView, newClass!)
         }
     }
 }
