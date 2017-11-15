@@ -1,6 +1,6 @@
-# LiveChat for iOS
+# iOS chat widget for LiveChat and chat.io
 
-LiveChat for iOS allows you to integrate [LiveChat](https://livechatinc.com) Chat Window into your iOS app.
+iOS chat widget for LiveChat and chat.io allows you to integrate [LiveChat](https://livechatinc.com) or [chat.io](https://chat.io) into your iOS app.
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 [![Version](https://img.shields.io/cocoapods/v/LiveChat.svg?style=flat)](http://cocoapods.org/pods/LiveChat)
@@ -16,7 +16,7 @@ LiveChat for iOS allows you to integrate [LiveChat](https://livechatinc.com) Cha
 
 ### Carthage
 
-If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add LiveChat to your `Cartfile`. 
+If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add 'livechat/chat-window-ios' to your `Cartfile`. 
 
 ```
 github "livechat/chat-window-ios" ~> 2.0
@@ -34,7 +34,7 @@ pod 'LiveChat', '~> 2.0'
 
 ### Manual Installation
 
-You can integrate LiveChat into your project manually without using a dependency manager. 
+You can integrate iOS chat widget into your project manually without using a dependency manager. 
 
 #### Swift
 
@@ -42,7 +42,7 @@ Just drag all files from the `LiveChat/Classes` directory into your project.
 
 #### Objective-C
 
-Drag all files from the `LiveChat/Classes` directory into your project. When adding first `*.swift` file to Objective-C project, Xcode will ask you to create a Bridging Header. It is not necessary for LiveChat to work, so you can decline unless you plan to call Swift code from Objective-C. More information about bridging headers and Swift and Objective-C interoperability can be found [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html). You need to put following import statement: `#import "<Your Project Name>-Swift.h"` at the top of your .m file.
+Drag all files from the `LiveChat/Classes` directory into your project. When adding first `*.swift` file to Objective-C project, Xcode will ask you to create a Bridging Header. It is not necessary for chat widget to work, so you can decline unless you plan to call Swift code from Objective-C. More information about bridging headers and Swift and Objective-C interoperability can be found [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html). You need to put following import statement: `#import "<Your Project Name>-Swift.h"` at the top of your .m file.
 
 Also, for Objective-C projects, you need to set the **Embedded Content Contains Swift Code** flag in your project to `Yes` (found under **Build Options** in the **Build Settings** tab). 
 
@@ -130,4 +130,4 @@ Any questions? [Chat with Us!](https://secure-lc.livechatinc.com/licence/8413431
 
 ## License
 
-LiveChat for iOS is available under the MIT license. See the LICENSE file for more info.
+iOS chat widget is available under the MIT license. See the LICENSE file for more info.
