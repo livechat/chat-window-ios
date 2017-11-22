@@ -1,5 +1,5 @@
 PODS:
-  - LiveChat (2.0.3)
+  - LiveChat (2.0.5)
 
 DEPENDENCIES:
   - LiveChat (from `../../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../../
 
 SPEC CHECKSUMS:
-  LiveChat: 2b315591a517216405fbc1609778621a7433a80a
+  LiveChat: 76e25772e0bdf509da75a30fc456049b0d907acb
 
 PODFILE CHECKSUM: 3c5656f11e72d83c9176b5143f6bc6cdbc3c5543
 
