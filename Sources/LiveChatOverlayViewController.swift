@@ -49,8 +49,6 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.automaticallyAdjustsScrollViewInsets = false
-        
         chatView.delegate = self
         
         // Adding webView to temporary UIWindow to start preloading content.

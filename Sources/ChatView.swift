@@ -8,6 +8,7 @@
 
 import Foundation
 import WebKit
+import UIKit
 
 @objc protocol ChatViewDelegate : NSObjectProtocol {
     func closedChatView()
@@ -21,9 +22,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     private let loadingView = LoadingView()
     weak var delegate : ChatViewDelegate?
     private let jsonCache = JSONRequestCache()
-    private var keyboardFrame = CGRect.zero
     private var animating = false
-    private let keyboardAnimationDelayed = true
     var configuration : LiveChatConfiguration? {
         didSet {
             if let oldValue = oldValue, let configuration = configuration {
@@ -73,20 +72,16 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         let script = WKUserScript(source: scriptContent!, injectionTime: .atDocumentStart, forMainFrameOnly: true)
         contentController.addUserScript(script)
         
-        let frame = webViewFrame(forKeyboardFrame: keyboardFrame, topInset: topInset())
         webView = WKWebView(frame: frame, configuration: configuration)
         webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         HideInputAccessoryHelper().removeInputAccessoryView(from: webView)
         webView.navigationDelegate = self
         webView.uiDelegate = self
-        webView.scrollView.isScrollEnabled = false
-        webView.scrollView.delegate = self
         webView.scrollView.minimumZoomScale = 1.0
         webView.scrollView.maximumZoomScale = 1.0
-        webView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         webView.isOpaque = false
-        webView.backgroundColor = UIColor.clear
-        webView.frame = webViewFrame(forKeyboardFrame: keyboardFrame, topInset: topInset())
+        webView.backgroundColor = UIColor.white
+        webView.frame = frame
         addSubview(webView)
         
         webView.alpha = 0
@@ -100,11 +95,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         addSubview(loadingView)
         
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        nc.addObserver(self, selector: #selector(keyboardDidChangeFrameNotification), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
-        
-        
         nc.addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: NSNotification.Name.UIApplicationDidBecomeActive
             , object: nil)
         nc.addObserver(self, selector: #selector(applicationWillResignActiveNotification), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
@@ -118,7 +108,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        webView.frame = webViewFrame(forKeyboardFrame: keyboardFrame, topInset: topInset())
         loadingView.frame = webView.frame
     }
     
@@ -132,12 +121,21 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         LiveChatState.markChatAsOpened()
         
         let animations = {
-            self.webView.frame = CGRect(x: 0, y: self.topInset(), width: self.bounds.size.width, height: self.bounds.size.height - self.topInset())
+            self.webView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
             self.loadingView.frame = self.webView.frame
             self.webView.alpha = 1
         }
         
         let completion = { (finished : Bool) in
+            self.webView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + 1)
+            DispatchQueue.main.asyncAfter(deadline:.now() + 0.1, execute: { [weak self] in
+                if let `self` = self {
+                    if self.webView.alpha > 0 {
+                        self.webView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+                    }
+                }
+            })
+            
             self.animating = false
             
             if finished {
@@ -151,7 +149,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         
         if animated {
             animating = true
-            webView.frame = CGRect(x: 0, y: bounds.size.height, width: bounds.size.width, height: bounds.size.height - topInset())
+            webView.frame = CGRect(x: 0, y: bounds.size.height, width: bounds.size.width, height: bounds.size.height)
             loadingView.frame = webView.frame
             UIView.animate(withDuration: 0.5,
                            delay: 0,
@@ -174,7 +172,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         webView.endEditing(true)
         
         let animations = {
-            self.webView.frame = CGRect(x: 0, y: self.bounds.size.height, width: self.bounds.size.width, height: self.bounds.size.height - self.topInset())
+            self.webView.frame = CGRect(x: 0, y: self.bounds.size.height, width: self.bounds.size.width, height: self.bounds.size.height)
             self.loadingView.frame = self.webView.frame
             self.webView.alpha = 0
         }
@@ -210,16 +208,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         delegate?.closedChatView()
     }
     
-    // MARK: Animation
-    
-    private func shouldAnimateKeyboard() -> Bool {
-        if webView.alpha > 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     // MARK: Application state management
     
     @objc func applicationDidBecomeActiveNotification(_ notification: Notification) {
@@ -231,126 +219,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     @objc func applicationWillResignActiveNotification(_ notification: Notification) {
         if self.webView.alpha > 0 {
             self.webViewBridge?.postBlurEvent()
-        }
-    }
-    
-    // MARK: Keyboard frame changes
-    
-    @objc func keyboardWillChangeFrameNotification(_ notification: Notification) {
-        let notification = KeyboardNotification(notification)
-        let keyboardScreenEndFrame = notification.screenFrameEnd
-        keyboardFrame = keyboardScreenEndFrame
-        
-        if keyboardAnimationDelayed {
-            NSObject.cancelPreviousPerformRequests(withTarget: self)
-            perform(#selector(delayedWillKeyboardFrameChange), with: notification, afterDelay: 0)
-        } else {
-            delayedWillKeyboardFrameChange(notification)
-        }
-    }
-    
-    @objc func keyboardDidChangeFrameNotification(_ notification: Notification) {
-        let notification = KeyboardNotification(notification)
-        keyboardFrame = notification.screenFrameEnd
-        
-        if keyboardAnimationDelayed {
-            NSObject.cancelPreviousPerformRequests(withTarget: self)
-            perform(#selector(delayedDidKeyboardFrameChange), with: notification, afterDelay: 0)
-        } else {
-            delayedDidKeyboardFrameChange(notification)
-        }
-    }
-    
-    @objc func delayedWillKeyboardFrameChange(_ notification: KeyboardNotification) {
-        if keyboardFrame.equalTo(notification.screenFrameEnd) {
-            webView.scrollView.isScrollEnabled = !shouldAnimateKeyboard()
-            
-            if shouldAnimateKeyboard() {
-                animateKeyboard(frameBegin: notification.screenFrameBegin, frameEnd: notification.screenFrameEnd, duration: notification.animationDuration, animationCurve: notification.animationCurve)
-            } else {
-                webView.frame = webViewFrame(forKeyboardFrame: keyboardFrame, topInset: topInset())
-            }
-        }
-    }
-    
-    @objc func delayedDidKeyboardFrameChange(_ notification: KeyboardNotification) {
-        if keyboardFrame.equalTo(notification.screenFrameEnd) {
-            webView.scrollView.isScrollEnabled = false
-            
-            if keyboardFrame.origin.y >= self.bounds.size.height {
-                keyboardFrame = CGRect.zero
-            }
-            
-            webView.frame = webViewFrame(forKeyboardFrame:keyboardFrame, topInset: topInset())
-            webView.layer.transform = CATransform3DIdentity
-        }
-    }
-    
-    // MARK: Private Methods
-    
-    private func webViewFrame(forKeyboardFrame keyboardFrame: CGRect?, topInset: CGFloat) -> CGRect {
-        if (self.bounds.size.width == 0) {
-            return CGRect(origin: CGPoint(x: 0, y: self.bounds.size.height), size:CGSize(width: self.bounds.size.width, height: 1))
-        }
-        
-        guard let keyboardFrame = keyboardFrame, keyboardFrame != CGRect.zero else {
-            let frame = CGRect(x: 0, y: topInset, width: self.bounds.size.width, height: max(self.bounds.size.height - topInset, 0))
-            return frame
-        }
-        
-        let frame = CGRect(x: 0, y: topInset, width: self.bounds.size.width, height: keyboardFrame.origin.y - topInset)
-        return frame
-    }
-    
-    private func topInset() -> CGFloat {
-        let statusBarFrame  = UIApplication.shared.statusBarFrame;
-        
-        guard let viewWindow = self.window else {
-            return statusBarFrame.size.height;
-        }
-        
-        let statusBarWindowRect = viewWindow.convert(statusBarFrame, from: nil);
-        let statusBarViewRect = self.convert(statusBarWindowRect, from: nil);
-        
-        return statusBarViewRect.size.height;
-    }
-    
-    private func animateKeyboard(frameBegin: CGRect, frameEnd: CGRect, duration: TimeInterval, animationCurve: Int) {
-        let beginViewFrame = webViewFrame(forKeyboardFrame: frameBegin, topInset: topInset())
-        let endViewFrame = webViewFrame(forKeyboardFrame: frameEnd, topInset: topInset())
-        
-        webView.layer.transform = CATransform3DIdentity
-        webView.layer.removeAllAnimations()
-        
-        UIGraphicsBeginImageContextWithOptions(webView.bounds.size, false, 0)
-        webView.drawHierarchy(in: webView.bounds, afterScreenUpdates: false)
-        let beginImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext();
-        
-        webView.frame = endViewFrame
-        webView.scrollView.layer.removeAllAnimations() //prevents animation glitch
-        
-        let beginMaskImageView = UIImageView()
-        beginMaskImageView.frame = beginViewFrame
-        beginMaskImageView.image = beginImage
-        self.addSubview(beginMaskImageView)
-        beginMaskImageView.layer.removeAllAnimations()
-        
-        let yScale = beginViewFrame.size.height / endViewFrame.size.height
-        let scaleTransform = CATransform3DMakeScale(1.0, yScale, 1.0)
-        
-        webView.layer.transform = scaleTransform
-        webView.layer.removeAllAnimations()
-        
-        UIView.animate(withDuration: duration,
-                       delay: 0,
-                       options: UIViewAnimationOptions(rawValue: UInt(animationCurve)),
-                       animations: {
-                        beginMaskImageView.frame = endViewFrame
-                        beginMaskImageView.alpha = 0
-                        self.webView.layer.transform = CATransform3DIdentity
-        }) { (finished) in
-            beginMaskImageView.removeFromSuperview()
         }
     }
     
@@ -397,7 +265,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
                                 self.webView.evaluateJavaScript("navigator.userAgent") {[weak self] (result, error) in
                                     DispatchQueue.main.async(execute: { [weak self] in
                                         if let `self` = self, let userAgent = result as? String {
-                                            self.webView.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.2"
+                                            self.webView.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.6"
                                             
                                             if LiveChatState.isChatOpenedBefore() {
                                                 self.webView.load(request)
@@ -432,21 +300,13 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         self.webView.reload()
     }
     
-    func close() {
+    @objc func close() {
         dismissChat(animated: true) { (finished) in
             if finished {
                 if let delegate = self.delegate {
                     delegate.closedChatView()
                 }
             }
-        }
-    }
-    
-    // MARK: UIScrollViewDelegate
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if shouldAnimateKeyboard() {
-            scrollView.contentOffset = CGPoint.zero;
         }
     }
     
