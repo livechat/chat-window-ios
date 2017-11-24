@@ -17,55 +17,55 @@ import UIKit
 }
 
 public class LiveChat : NSObject {
-    public static var licenseId : String? {
+    @objc public static var licenseId : String? {
         didSet {
             updateConfiguration()
         }
     }
-    public static var groupId : String? {
+    @objc public static var groupId : String? {
         didSet {
             updateConfiguration()
         }
     }
-    public static var name : String? {
+    @objc public static var name : String? {
         didSet {
             updateConfiguration()
         }
     }
-    public static var email : String? {
+    @objc public static var email : String? {
         didSet {
             updateConfiguration()
         }
     }
-    public static var allCustomVariables : Dictionary<String, String>?
+    @objc public static var allCustomVariables : Dictionary<String, String>?
     
-    public static weak var delegate : LiveChatDelegate? {
+    @objc public static weak var delegate : LiveChatDelegate? {
         didSet {
             Manager.sharedInstance.delegate = delegate
         }
     }
     
-    public static var isChatPresented : Bool {
+    @objc public static var isChatPresented : Bool {
         get {
             return Manager.sharedInstance.overlayViewController.chatState == .presented
         }
     }
     
-    public static var unreadMessagesCount : Int {
+    @objc public static var unreadMessagesCount : Int {
         get {
             return UnreadMessagesCounter.counterValue
         }
     }
     
-    public class func setVariable(withKey key: String, value: String) {
+    @objc public class func setVariable(withKey key: String, value: String) {
         Manager.sharedInstance.setVariable(withKey: key, value: value)
     }
     
-    public class func presentChat(animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+    @objc public class func presentChat(animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         Manager.sharedInstance.presentChat(animated: animated, completion: completion)
     }
     
-    public class func dismissChat(animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+    @objc public class func dismissChat(animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         Manager.sharedInstance.dismissChat(animated: animated, completion: completion)
     }
     

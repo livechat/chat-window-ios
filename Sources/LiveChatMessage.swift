@@ -9,11 +9,11 @@
 import Foundation
 
 public class LiveChatMessage : NSObject {
-    public let id: String
-    public let text: String
-    public let date: Date
-    public let authorName: String
-    public let rawMessage: NSDictionary
+    @objc public let id: String
+    @objc public let text: String
+    @objc public let date: Date
+    @objc public let authorName: String
+    @objc public let rawMessage: NSDictionary
     
     init(id: String, text: String, date: Date, authorName: String, rawMessage: NSDictionary) {
         self.id = id
