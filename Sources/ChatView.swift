@@ -18,7 +18,7 @@ import UIKit
 let iOSMessageHandlerName = "iosMobileWidget"
 
 class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, UIScrollViewDelegate, LoadingViewDelegate {
-    private var webView = WKWebView()
+    private var webView : WKWebView?
     private let loadingView = LoadingView()
     weak var delegate : ChatViewDelegate?
     private let jsonCache = JSONRequestCache()
@@ -73,18 +73,20 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         contentController.addUserScript(script)
         
         webView = WKWebView(frame: frame, configuration: configuration)
-        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        HideInputAccessoryHelper().removeInputAccessoryView(from: webView)
-        webView.navigationDelegate = self
-        webView.uiDelegate = self
-        webView.scrollView.minimumZoomScale = 1.0
-        webView.scrollView.maximumZoomScale = 1.0
-        webView.isOpaque = false
-        webView.backgroundColor = UIColor.white
-        webView.frame = frame
-        addSubview(webView)
-        
-        webView.alpha = 0
+
+        if let webView = webView {
+            addSubview(webView)
+            webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            HideInputAccessoryHelper().removeInputAccessoryView(from: webView)
+            webView.navigationDelegate = self
+            webView.uiDelegate = self
+            webView.scrollView.minimumZoomScale = 1.0
+            webView.scrollView.maximumZoomScale = 1.0
+            webView.isOpaque = false
+            webView.backgroundColor = UIColor.white
+            webView.frame = frame
+            webView.alpha = 0
+        }
         
         backgroundColor = UIColor.clear
         
@@ -101,19 +103,25 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     }
     
     deinit {
-        webView.scrollView.delegate = nil
-        webView.stopLoading()
-        webView.configuration.userContentController.removeScriptMessageHandler(forName:(iOSMessageHandlerName))
+        if let webView = webView {
+            webView.scrollView.delegate = nil
+            webView.stopLoading()
+            webView.configuration.userContentController.removeScriptMessageHandler(forName:(iOSMessageHandlerName))
+        }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        loadingView.frame = webView.frame
+        if let webView = webView {
+            loadingView.frame = webView.frame
+        }
     }
     
     // MARK: Public Methods
     
     func presentChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
+        guard let wv = webView else { return }
+        
         if !LiveChatState.isChatOpenedBefore() {
             delayed_reload()
         }
@@ -121,17 +129,17 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         LiveChatState.markChatAsOpened()
         
         let animations = {
-            self.webView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
-            self.loadingView.frame = self.webView.frame
-            self.webView.alpha = 1
+            wv.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+            self.loadingView.frame = wv.frame
+            wv.alpha = 1
         }
         
         let completion = { (finished : Bool) in
-            self.webView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + 1)
+            wv.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + 1)
             DispatchQueue.main.asyncAfter(deadline:.now() + 0.1, execute: { [weak self] in
                 if let `self` = self {
-                    if self.webView.alpha > 0 {
-                        self.webView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+                    if wv.alpha > 0 {
+                        wv.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
                     }
                 }
             })
@@ -149,8 +157,8 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         
         if animated {
             animating = true
-            webView.frame = CGRect(x: 0, y: bounds.size.height, width: bounds.size.width, height: bounds.size.height)
-            loadingView.frame = webView.frame
+            wv.frame = CGRect(x: 0, y: bounds.size.height, width: bounds.size.width, height: bounds.size.height)
+            loadingView.frame = wv.frame
             UIView.animate(withDuration: 0.5,
                            delay: 0,
                            usingSpringWithDamping: 0.7,
@@ -165,16 +173,18 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     }
     
     func dismissChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
+        guard let wv = webView else { return }
+        
         if animating {
             return
         }
         
-        webView.endEditing(true)
+        wv.endEditing(true)
         
         let animations = {
-            self.webView.frame = CGRect(x: 0, y: self.bounds.size.height, width: self.bounds.size.width, height: self.bounds.size.height)
-            self.loadingView.frame = self.webView.frame
-            self.webView.alpha = 0
+            wv.frame = CGRect(x: 0, y: self.bounds.size.height, width: self.bounds.size.width, height: self.bounds.size.height)
+            self.loadingView.frame = wv.frame
+            wv.alpha = 0
         }
         
         let completion = { (finished : Bool) in
@@ -211,13 +221,13 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     // MARK: Application state management
     
     @objc func applicationDidBecomeActiveNotification(_ notification: Notification) {
-        if self.webView.alpha > 0 {
+        if let webView = self.webView, webView.alpha > 0 {
             self.webViewBridge?.postFocusEvent()
         }
     }
     
     @objc func applicationWillResignActiveNotification(_ notification: Notification) {
-        if self.webView.alpha > 0 {
+        if let webView = self.webView, webView.alpha > 0 {
             self.webViewBridge?.postBlurEvent()
         }
     }
@@ -257,25 +267,25 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
                         
                         let url = buildUrl(templateURL: templateURL, configuration: configuration, customVariables: self.customVariables, maxLength: 2000)
                         
-                        if let url = url {
+                        if let url = url, let wv = self.webView {
                             let request = URLRequest(url: url)
                             
                             if #available(iOS 9.0, *) {
                                 // Changing UserAgent string:
-                                self.webView.evaluateJavaScript("navigator.userAgent") {[weak self] (result, error) in
-                                    DispatchQueue.main.async(execute: { [weak self] in
-                                        if let `self` = self, let userAgent = result as? String {
-                                            self.webView.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.6"
+                                wv.evaluateJavaScript("navigator.userAgent") {(result, error) in
+                                    DispatchQueue.main.async(execute: {
+                                        if let userAgent = result as? String {
+                                            wv.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.6"
                                             
                                             if LiveChatState.isChatOpenedBefore() {
-                                                self.webView.load(request)
+                                                wv.load(request)
                                             }
                                         }
                                     })
                                 }
                             } else {
                                 if LiveChatState.isChatOpenedBefore() {
-                                    self.webView.load(request)
+                                    wv.load(request)
                                 }
                             }
                         } else {
@@ -295,9 +305,11 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     }
     
     func reload() {
-        self.loadingView.alpha = 1.0
-        self.loadingView.startAnimation()
-        self.webView.reload()
+        if let webView = webView {
+            self.loadingView.alpha = 1.0
+            self.loadingView.startAnimation()
+            webView.reload()
+        }
     }
     
     @objc func close() {
@@ -357,7 +369,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        if self.webView.alpha == 0 {
+        if let webView = self.webView, webView.alpha == 0 {
             self.webViewBridge?.postBlurEvent()
         }
         
