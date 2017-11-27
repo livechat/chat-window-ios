@@ -59,7 +59,7 @@ private func escaped(customVariables: Dictionary<String, String>?) -> String? {
             
             let variable = eK + "=" + eVal
             
-            if allVariables.characters.count > 0 {
+            if allVariables.count > 0 {
                 allVariables += "&"
             }
             
