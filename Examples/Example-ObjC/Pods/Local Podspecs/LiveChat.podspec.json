@@ -22,5 +22,8 @@
   "frameworks": [
     "UIKit",
     "WebKit"
-  ]
+  ],
+  "xcconfig": {
+    "SWIFT_VERSION": "4.0"
+  }
 }
