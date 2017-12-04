@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'LiveChat'
-  s.version          = '2.0.6'
+  s.version          = '2.0.7'
   s.summary          = 'LiveChat chat window for your iOS app.'
   s.homepage         = 'https://github.com/livechat/chat-window-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

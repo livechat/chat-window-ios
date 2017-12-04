@@ -9,7 +9,7 @@ import UIKit
 /// - UIKeyboardAnimationDurationUserInfoKey
 /// - UIKeyboardAnimationCurveUserInfoKey
 
-class KeyboardNotification : NSObject {
+open class KeyboardNotification : NSObject {
     
     let notification: Notification
     let userInfo: NSDictionary
@@ -19,7 +19,7 @@ class KeyboardNotification : NSObject {
     /// :param: notification Keyboard-related notification
     public init(_ notification: Notification) {
         self.notification = notification
-        if let userInfo = (notification as NSNotification).userInfo {
+        if let userInfo = notification.userInfo {
             self.userInfo = userInfo as NSDictionary
         }
         else {
@@ -28,7 +28,7 @@ class KeyboardNotification : NSObject {
     }
     
     /// Start frame of the keyboard in screen coordinates
-    public var screenFrameBegin: CGRect {
+    open var screenFrameBegin: CGRect {
         if let value = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
             return value.cgRectValue
         }
@@ -38,7 +38,7 @@ class KeyboardNotification : NSObject {
     }
     
     /// End frame of the keyboard in screen coordinates
-    public var screenFrameEnd: CGRect {
+    open var screenFrameEnd: CGRect {
         if let value = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             return value.cgRectValue
         }
@@ -48,7 +48,7 @@ class KeyboardNotification : NSObject {
     }
     
     /// Keyboard animation duration
-    public var animationDuration: Double {
+    open var animationDuration: Double {
         if let number = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
             return number.doubleValue
         }
@@ -62,7 +62,7 @@ class KeyboardNotification : NSObject {
     /// Note that the value returned by this method may not correspond to a
     /// UIViewAnimationCurve enum value.  For example, in iOS 7 and iOS 8,
     /// this returns the value 7.
-    public var animationCurve: Int {
+    open var animationCurve: Int {
         if let number = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber {
             return number.intValue
         }
@@ -73,7 +73,7 @@ class KeyboardNotification : NSObject {
     ///
     /// :param: view UIView to whose coordinate system the frame will be converted
     /// :returns: frame rectangle in view's coordinate system
-    public func frameBegin(for view: UIView) -> CGRect {
+    open func frameBeginForView(_ view: UIView) -> CGRect {
         return view.convert(screenFrameBegin, from: view.window)
     }
     
@@ -81,7 +81,9 @@ class KeyboardNotification : NSObject {
     ///
     /// :param: view UIView to whose coordinate system the frame will be converted
     /// :returns: frame rectangle in view's coordinate system
-    public func frameEnd(for view: UIView) -> CGRect {
+    open func frameEndForView(_ view: UIView) -> CGRect {
         return view.convert(screenFrameEnd, from: view.window)
     }
 }
+
+
