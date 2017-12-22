@@ -219,6 +219,19 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         }
     }
     
+    func clearSession() {
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+            for record in records {
+                if record.displayName.contains("livechat") || record.displayName.contains("chat.io") {
+                    dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: {
+                        self.reloadWithDelay()
+                    })
+                }
+            }
+        }
+    }
+    
     private func chatHidden() {
         delegate?.closedChatView()
     }

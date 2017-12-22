@@ -69,6 +69,10 @@ public class LiveChat : NSObject {
         Manager.sharedInstance.dismissChat(animated: animated, completion: completion)
     }
     
+    @objc public class func clearSession() {
+        Manager.sharedInstance.clearSession()
+    }
+    
     private class func updateConfiguration() {
         if let licenseId = self.licenseId {
             let conf = LiveChatConfiguration(licenseId: licenseId, groupId: self.groupId ?? "0", name: self.name ?? "", email: self.email ?? "")
@@ -160,6 +164,10 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
                 completion(finished)
             }
         })
+    }
+    
+    func clearSession() {
+        overlayViewController.clearSession()
     }
     
     // MARK: LiveChatViewDelegate

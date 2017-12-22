@@ -22,5 +22,10 @@ class ViewController: UIViewController {
         //Presenting chat:
         LiveChat.presentChat()
     }
+    
+    @IBAction func clearSession(_ sender: Any) {
+        //Clearing session:
+        LiveChat.clearSession()
+    }
 }
 

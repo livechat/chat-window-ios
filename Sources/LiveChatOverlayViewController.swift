@@ -85,6 +85,10 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
         })
     }
     
+    func clearSession() {
+        chatView.clearSession()
+    }
+    
     // MARK: LiveChatViewDelegate
     
     @objc func closedChatView() {
