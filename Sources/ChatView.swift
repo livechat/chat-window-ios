@@ -77,7 +77,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         if let webView = webView {
             addSubview(webView)
             webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            HideInputAccessoryHelper().removeInputAccessoryView(from: webView)
             webView.navigationDelegate = self
             webView.uiDelegate = self
             webView.scrollView.minimumZoomScale = 1.0
