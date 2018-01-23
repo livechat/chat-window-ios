@@ -114,7 +114,9 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         overlayViewController.webViewBridge = webViewBridge
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { (notification) in
-            self.window.frame = UIApplication.shared.keyWindow!.frame
+            if let keyWindow = UIApplication.shared.keyWindow {
+                self.window.frame = keyWindow.frame
+            }
         }
     }
     
