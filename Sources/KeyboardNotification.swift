@@ -9,7 +9,7 @@ import UIKit
 /// - UIKeyboardAnimationDurationUserInfoKey
 /// - UIKeyboardAnimationCurveUserInfoKey
 
-open class KeyboardNotification : NSObject {
+class KeyboardNotification : NSObject {
     
     let notification: Notification
     let userInfo: NSDictionary
