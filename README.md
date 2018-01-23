@@ -19,7 +19,7 @@ iOS chat widget for LiveChat and chat.io allows you to integrate [LiveChat](http
 If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add 'livechat/chat-window-ios' to your `Cartfile`. 
 
 ```
-github "livechat/chat-window-ios" ~> 2.0.7
+github "livechat/chat-window-ios" ~> 2.0.10
 ```
 
 Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have include it in your Carthage framework copying build phase.
@@ -29,7 +29,7 @@ Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Lib
 If you use [CocoaPods](http://cocoapods.org) to manage your dependencies, simply add LiveChat to your `Podfile`.
 
 ```
-pod 'LiveChat', '~> 2.0.7'
+pod 'LiveChat', '~> 2.0.10'
 ```
 
 ### Manual Installation
@@ -116,9 +116,9 @@ func handle(URL: URL) {
 }
 ```
 
-### Sending Photos from device library
+### Sending files from device library
 
-If you have file sharing enabled for visitors, you should provide usage description by including `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`) key in your `Info.plist` file to avoid crash on iOS 10 or higher.
+If you have file sharing enabled for visitors, you should provide usage description by including `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`), `NSCameraUsageDescription` (`Privacy - Camera Usage Description`) and `NSMicrophoneUsageDescription` (`Privacy - Microphone Usage Description`) keys in your `Info.plist` file to avoid crash on iOS 10 or higher. You can check `Info.plist` files in example projects.
 
 ## Example Apps
 
