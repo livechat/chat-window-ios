@@ -279,7 +279,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         if #available(iOS 11.0, *) {
             safeAreaInsets = self.safeAreaInsets
         } else {
-            safeAreaInsets = UIEdgeInsets.zero
+            safeAreaInsets = UIEdgeInsetsMake(UIApplication.shared.statusBarFrame.size.height, 0, 0, 0)
         }
         let frameForSafeAreaInsets = CGRect(x: safeAreaInsets.left, y: safeAreaInsets.top, width: bounds.size.width - safeAreaInsets.left - safeAreaInsets.right, height: bounds.size.height - safeAreaInsets.top - safeAreaInsets.bottom)
         
