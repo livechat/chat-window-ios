@@ -43,5 +43,9 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To send photo to support.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To send videos to support.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To send videos to support.</string>
 </dict>
 </plist>
