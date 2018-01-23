@@ -27,4 +27,9 @@
     [LiveChat presentChatWithAnimated:YES completion:nil];
 }
 
+- (IBAction)clearSession:(id)sender {
+    //Clearing session:
+    [LiveChat clearSession];
+}
+
 @end

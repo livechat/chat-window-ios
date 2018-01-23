@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4kL-Fv-SBL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4kL-Fv-SBL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,21 +37,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wWc-jP-uoa">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FiI-iB-IgE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FiI-iB-IgE">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                    </mapView>
-                                </subviews>
-                            </stackView>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yw4-NA-eWT">
+                                <rect key="frame" x="229" y="603" width="126" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="KQl-yd-xqB"/>
+                                    <constraint firstAttribute="height" constant="44" id="XpE-jn-1t3"/>
+                                </constraints>
+                                <state key="normal" title="Clear session"/>
+                                <connections>
+                                    <action selector="clearSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kaq-Ns-rOl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wWc-jP-uoa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5sg-jw-ee7"/>
-                            <constraint firstItem="wWc-jP-uoa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HUB-L8-Ezf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wWc-jP-uoa" secondAttribute="bottom" id="WwX-II-b6x"/>
-                            <constraint firstAttribute="trailing" secondItem="wWc-jP-uoa" secondAttribute="trailing" id="bVb-fv-fKY"/>
+                            <constraint firstItem="FiI-iB-IgE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="17y-3t-mui"/>
+                            <constraint firstAttribute="trailing" secondItem="Yw4-NA-eWT" secondAttribute="trailing" constant="20" id="Q9q-aD-Psr"/>
+                            <constraint firstItem="FiI-iB-IgE" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="dXQ-im-7Q0"/>
+                            <constraint firstItem="FiI-iB-IgE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="r3N-p0-FEf"/>
+                            <constraint firstAttribute="trailing" secondItem="FiI-iB-IgE" secondAttribute="trailing" id="vdZ-yh-I61"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Yw4-NA-eWT" secondAttribute="bottom" constant="20" id="zKl-m3-obo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ofl-76-wl9">

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="icW-zF-g1W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="icW-zF-g1W">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,10 +40,13 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OmC-OV-I0g">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzH-Mt-2Oa">
-                                <rect key="frame" x="232" y="602" width="127" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzH-Mt-2Oa">
+                                <rect key="frame" x="229" y="603" width="126" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="UAx-Se-vQC"/>
+                                    <constraint firstAttribute="width" constant="126" id="po3-yS-Nzh"/>
+                                </constraints>
                                 <state key="normal" title="Clear session">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -54,10 +57,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OmC-OV-I0g" secondAttribute="bottom" id="6gJ-4z-YLb"/>
-                            <constraint firstItem="OmC-OV-I0g" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="B6F-hG-sc2"/>
-                            <constraint firstItem="OmC-OV-I0g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IKl-j0-I7h"/>
-                            <constraint firstAttribute="trailing" secondItem="OmC-OV-I0g" secondAttribute="trailing" id="WdK-ed-zJo"/>
+                            <constraint firstItem="OmC-OV-I0g" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1Bm-av-Xsc"/>
+                            <constraint firstAttribute="trailing" secondItem="OmC-OV-I0g" secondAttribute="trailing" id="1S9-7r-sgo"/>
+                            <constraint firstAttribute="trailing" secondItem="bzH-Mt-2Oa" secondAttribute="trailing" constant="20" id="OVW-ms-ZB3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OmC-OV-I0g" secondAttribute="bottom" id="ga9-iC-wJQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bzH-Mt-2Oa" secondAttribute="bottom" constant="20" id="lAO-Pn-jdZ"/>
+                            <constraint firstItem="OmC-OV-I0g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zqp-Cw-lUK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Diu-mX-Job">
