@@ -422,9 +422,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         
         loadingView.alpha = 1.0
         
-        if error.domain == NSURLErrorDomain && error.code == -999 {
-            loadingView.displayLoadingError(withMessage: error.localizedDescription)
-        } else {
+        if !(error.domain == NSURLErrorDomain && error.code == -999) {
             loadingView.displayLoadingError(withMessage: error.localizedDescription)
         }
     }
