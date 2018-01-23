@@ -16,7 +16,7 @@ iOS chat widget for LiveChat and chat.io allows you to integrate [LiveChat](http
 
 ### Carthage
 
-If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add 'livechat/chat-window-ios' to your `Cartfile`. 
+If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add 'livechat/chat-window-ios' to your `Cartfile`.
 
 ```
 github "livechat/chat-window-ios" ~> 2.0.10
@@ -28,13 +28,13 @@ Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Lib
 
 If you use [CocoaPods](http://cocoapods.org) to manage your dependencies, simply add LiveChat to your `Podfile`.
 
-```
+```bash
 pod 'LiveChat', '~> 2.0.10'
 ```
 
 ### Manual Installation
 
-You can integrate iOS chat widget into your project manually without using a dependency manager. 
+You can integrate iOS chat widget into your project manually without using a dependency manager.
 
 #### Swift
 
@@ -42,9 +42,9 @@ Just drag all files from the `LiveChat/Classes` directory into your project.
 
 #### Objective-C
 
-Drag all files from the `LiveChat/Classes` directory into your project. When adding first `*.swift` file to Objective-C project, Xcode will ask you to create a Bridging Header. It is not necessary for chat widget to work, so you can decline unless you plan to call Swift code from Objective-C. More information about bridging headers and Swift and Objective-C interoperability can be found [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html). You need to put following import statement: `#import "<Your Project Name>-Swift.h"` at the top of your .m file.
+Drag all files from the `LiveChat/Classes` directory into your project. When adding first `*.swift` file to Objective-C project, Xcode will ask you to create a Bridging Header. It is not necessary for chat widget to work, so you can decline unless you plan to call Swift code from Objective-C. More information about bridging headers and Swift and Objective-C interoperability can be found [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html). You need to put the following import statement: `#import "<Your Project Name>-Swift.h"` at the top of your .m file.
 
-Also, for Objective-C projects, you need to set the **Embedded Content Contains Swift Code** flag in your project to `Yes` (found under **Build Options** in the **Build Settings** tab). 
+Also, for Objective-C projects, you need to set the **Embedded Content Contains Swift Code** flag in your project to `Yes` (found under **Build Options** in the **Build Settings** tab).
 
 ## Usage
 
@@ -64,14 +64,14 @@ LiveChat.presentChat()
 
 ### Setting Custom Variables
 
-You can provide customer name or email if they are known, so customer will not need to fill pre-chat survey:
+You can provide customer name or email if they are known, so a customer will not need to fill out the pre-chat survey:
 
 ```swift
 LiveChat.name = "iOS Widget Example"
 LiveChat.email = "example@livechatinc.com"
 ```
 
-If you want to associate some additional info with your customer, you can set Custom Variables:
+If you want to associate some additional info with your customer, you can set up Custom Variables:
 
 ```swift
 LiveChat.setVariable(withKey:"Variable name", value:"Some value")
@@ -85,9 +85,9 @@ You can route your customers to specific group of agents by providing groupId. M
 LiveChat.groupId = "7"
 ```
 
-### Notifying user about agent response
+### Notifying the user about the agent's response
 
-You can notifiy your user about agent response if chat was minimized by the user. To handle incoming messages your class must implement `LiveChatDelegate` protocol and set itself as `LiveChat.delegate`.
+You can notifiy your user about agent response if chat was minimized by the user. To handle the incoming messages, your class must implement `LiveChatDelegate` protocol and set itself as `LiveChat.delegate`.
 
 ```swift
 class YOUR_CLASS_NAME : LiveChatDelegate { // Your class need to implement LiveChatDelegate protocol
@@ -118,15 +118,15 @@ func handle(URL: URL) {
 
 ### Sending files from device library
 
-If you have file sharing enabled for visitors, you should provide usage description by including `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`), `NSCameraUsageDescription` (`Privacy - Camera Usage Description`) and `NSMicrophoneUsageDescription` (`Privacy - Microphone Usage Description`) keys in your `Info.plist` file to avoid crash on iOS 10 or higher. You can check `Info.plist` files in example projects.
+If you have file sharing enabled for the visitors, you should provide usage description by including `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`), `NSCameraUsageDescription` (`Privacy - Camera Usage Description`) and `NSMicrophoneUsageDescription` (`Privacy - Microphone Usage Description`) keys in your `Info.plist` file to avoid crash on iOS 10 or higher. You can check `Info.plist` files in example projects.
 
-## Example Apps
+## Sample Apps
 
-Example apps can be found in the `Examples` folder. Samples for both Swift and Objective-C are provided.
+Sample apps for both Swift and Objective-C can be found in the `Examples` folder.
 
 ## Getting help
 
-Any questions? [Chat with Us!](https://secure-lc.livechatinc.com/licence/8413431/open_chat.cgi)
+If you have any questions or want to provide feedback, [chat with us!](https://secure-lc.livechatinc.com/licence/8413431/open_chat.cgi)
 
 ## License
 
