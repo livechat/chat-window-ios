@@ -459,6 +459,11 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         webView.removeFromSuperview()
     }
     
+    @available(iOS 10.0, *)
+    func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool {
+        return false
+    }
+    
     // MARK: WKScriptMessageHandler
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
