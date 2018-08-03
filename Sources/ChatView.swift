@@ -96,12 +96,22 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         addSubview(loadingView)
         
         let nc = NotificationCenter.default
+      
+        #if swift(>=4.2)
+        nc.addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: UIApplication.didBecomeActiveNotification
+        , object: nil)
+        nc.addObserver(self, selector: #selector(applicationWillResignActiveNotification), name: UIApplication.willResignActiveNotification, object: nil)
+        nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
+        nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: UIResponder.keyboardWillHideNotification, object: nil)
+        nc.addObserver(self, selector: #selector(keyboardDidChangeFrameNotification), name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
+        #else
         nc.addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: NSNotification.Name.UIApplicationDidBecomeActive
-            , object: nil)
+          , object: nil)
         nc.addObserver(self, selector: #selector(applicationWillResignActiveNotification), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         nc.addObserver(self, selector: #selector(keyboardDidChangeFrameNotification), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
+        #endif
 
     }
     
@@ -279,7 +289,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         if #available(iOS 11.0, *) {
             safeAreaInsets = self.safeAreaInsets
         } else {
-            safeAreaInsets = UIEdgeInsetsMake(UIApplication.shared.statusBarFrame.size.height, 0, 0, 0)
+          safeAreaInsets = UIEdgeInsets(top: UIApplication.shared.statusBarFrame.size.height, left: 0, bottom: 0, right: 0)
         }
         let frameForSafeAreaInsets = CGRect(x: safeAreaInsets.left, y: safeAreaInsets.top, width: bounds.size.width - safeAreaInsets.left - safeAreaInsets.right, height: bounds.size.height - safeAreaInsets.top - safeAreaInsets.bottom)
         
@@ -431,16 +441,29 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         if let webView = self.webView, webView.alpha == 0 {
             self.webViewBridge?.postBlurEvent()
         }
-        
-        UIView.animate(withDuration: 0.3,
-                       delay: 1.0,
-                       options: UIViewAnimationOptions(),
-                       animations: {
-                        self.loadingView.alpha = 0
-        },
-                       completion: { (finished) in
-                        
-        })
+      
+      
+      #if swift(>=4.2)
+      UIView.animate(withDuration: 0.3,
+                     delay: 1.0,
+                     options: .curveLinear,
+                     animations: {
+                      self.loadingView.alpha = 0
+      },
+                     completion: { (finished) in
+                      
+      })
+      #else
+      UIView.animate(withDuration: 0.3,
+                     delay: 1.0,
+                     options: UIViewAnimationOptions(),
+                     animations: {
+                      self.loadingView.alpha = 0
+      },
+                     completion: { (finished) in
+      
+      })
+      #endif
     }
     
     // MARK: WKUIDelegate

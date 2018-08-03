@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 import WebKit
 
+#if swift(>=4.2)
+typealias AnimationCurveType = UIView.AnimationOptions
+#else
+typealias AnimationCurveType = UIViewAnimationOptions
+#endif
+
 class WebViewAnimationCoordinator {
     func coordinateAnimation(_ webView: WKWebView, superView: UIView, notification: KeyboardNotification, completion: ((Bool) -> Swift.Void)? = nil) {
         let frameBegin = notification.frameBeginForView(webView)
@@ -38,11 +44,11 @@ class WebViewAnimationCoordinator {
         
         let transform = CATransform3DConcat(scaleTransform, translationTransform)
         
-        performAnimation(webView, superView: superView, maskAnimationBeginFrame: maskAnimationBeginFrame, maskAnimationEndFrame: maskAnimationEndFrame, webViewTransform: transform, duration: notification.animationDuration, animationCurve: UIViewAnimationOptions(rawValue: UInt(notification.animationCurve)), completion: completion)
+        performAnimation(webView, superView: superView, maskAnimationBeginFrame: maskAnimationBeginFrame, maskAnimationEndFrame: maskAnimationEndFrame, webViewTransform: transform, duration: notification.animationDuration, animationCurve: AnimationCurveType(rawValue: UInt(notification.animationCurve)), completion: completion)
         
     }
     
-    private func performAnimation(_ webView: WKWebView, superView: UIView, maskAnimationBeginFrame: CGRect, maskAnimationEndFrame: CGRect, webViewTransform: CATransform3D, duration: TimeInterval, animationCurve: UIViewAnimationOptions, completion: ((Bool) -> Swift.Void)? = nil) {
+    private func performAnimation(_ webView: WKWebView, superView: UIView, maskAnimationBeginFrame: CGRect, maskAnimationEndFrame: CGRect, webViewTransform: CATransform3D, duration: TimeInterval, animationCurve: AnimationCurveType, completion: ((Bool) -> Swift.Void)? = nil) {
         
         webView.layer.transform = CATransform3DIdentity
         webView.layer.removeAllAnimations()

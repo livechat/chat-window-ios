@@ -29,7 +29,12 @@ class KeyboardNotification : NSObject {
     
     /// Start frame of the keyboard in screen coordinates
     open var screenFrameBegin: CGRect {
-        if let value = userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
+        #if swift(>=4.2)
+        let key: String = UIResponder.keyboardFrameBeginUserInfoKey
+        #else
+        let key: String = UIKeyboardFrameBeginUserInfoKey
+        #endif
+        if let value = userInfo[key] as? NSValue {
             return value.cgRectValue
         }
         else {
@@ -39,7 +44,12 @@ class KeyboardNotification : NSObject {
     
     /// End frame of the keyboard in screen coordinates
     open var screenFrameEnd: CGRect {
-        if let value = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        #if swift(>=4.2)
+        let key: String = UIResponder.keyboardFrameEndUserInfoKey
+        #else
+        let key: String = UIKeyboardFrameEndUserInfoKey
+        #endif
+        if let value = userInfo[key] as? NSValue {
             return value.cgRectValue
         }
         else {
@@ -49,7 +59,12 @@ class KeyboardNotification : NSObject {
     
     /// Keyboard animation duration
     open var animationDuration: Double {
-        if let number = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber {
+        #if swift(>=4.2)
+        let key: String = UIResponder.keyboardAnimationDurationUserInfoKey
+        #else
+        let key: String = UIKeyboardAnimationDurationUserInfoKey
+        #endif
+        if let number = userInfo[key] as? NSNumber {
             return number.doubleValue
         }
         else {
@@ -63,10 +78,20 @@ class KeyboardNotification : NSObject {
     /// UIViewAnimationCurve enum value.  For example, in iOS 7 and iOS 8,
     /// this returns the value 7.
     open var animationCurve: Int {
-        if let number = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber {
+        #if swift(>=4.2)
+        let key: String = UIResponder.keyboardAnimationCurveUserInfoKey
+        #else
+        let key: String = UIKeyboardAnimationCurveUserInfoKey
+        #endif
+        if let number = userInfo[key] as? NSNumber {
             return number.intValue
         }
+      
+        #if swift(>=4.2)
+        return UIView.AnimationCurve.easeInOut.rawValue
+        #else
         return UIViewAnimationCurve.easeInOut.rawValue
+        #endif
     }
     
     /// Start frame of the keyboard in coordinates of specified view

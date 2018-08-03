@@ -214,8 +214,8 @@ private class ReloadButton : UIButton {
     init() {
         super.init(frame: CGRect.zero)
         
-        setTitle("Reload", for: UIControlState())
-        setTitleColor(darkGrey, for: UIControlState())
+        setTitle("Reload", for: .normal)
+        setTitleColor(darkGrey, for: .normal)
         setTitleColor(UIColor.white, for: .highlighted)
         
         layer.cornerRadius = 6
@@ -311,9 +311,15 @@ private class ActivityIndicator : UIView {
             animation.repeatCount = Float.greatestFiniteMagnitude
             
             activityIndicator.add(animation, forKey: "rotationAnimation")
-            
+          
+            #if swift(>=4.2)
+            let notificationName: NSNotification.Name = UIApplication.didBecomeActiveNotification
+            #else
+            let notificationName: NSNotification.Name = .UIApplicationDidBecomeActive
+            #endif
+          
             NotificationCenter.default.removeObserver(self)
-            NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: notificationName, object: nil)
         }
     }
     

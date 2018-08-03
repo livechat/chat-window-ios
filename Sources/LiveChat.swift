@@ -104,7 +104,13 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     override init() {
         window.backgroundColor = UIColor.clear
         window.frame = UIScreen.main.bounds
+      
+        #if swift(>=4.2)
+        window.windowLevel = UIWindow.Level(UIWindow.Level.normal.rawValue + 1)
+        #else
         window.windowLevel = UIWindowLevelNormal + 1
+        #endif
+      
         window.rootViewController = overlayViewController
         
         super.init()
@@ -112,8 +118,14 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         webViewBridge.delegate = self
         overlayViewController.delegate = self
         overlayViewController.webViewBridge = webViewBridge
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { (notification) in
+      
+        #if swift(>=4.2)
+        let notificationName: NSNotification.Name = UIApplication.didBecomeActiveNotification
+        #else
+        let notificationName: NSNotification.Name = .UIApplicationDidBecomeActive
+        #endif
+      
+        NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil) { (notification) in
             if let keyWindow = UIApplication.shared.keyWindow {
                 self.window.frame = keyWindow.frame
             }
