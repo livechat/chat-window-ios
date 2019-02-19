@@ -124,11 +124,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     
     func presentChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
         guard let wv = webView else { return }
-        
-        if !LiveChatState.isChatOpenedBefore() {
-            delayed_reload()
-        }
-        
+        delayed_reload()
         LiveChatState.markChatAsOpened()
         
         let animations = {
