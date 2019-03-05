@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		73D621181EF029AF00D2877B /* LiveChat.h in Headers */ = {isa = PBXBuildFile; fileRef = 73D621161EF029AF00D2877B /* LiveChat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73D6212B1EF02B6700D2877B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6211E1EF02B6700D2877B /* ChatView.swift */; };
-		73D6212C1EF02B6700D2877B /* HideInputAccessoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6211F1EF02B6700D2877B /* HideInputAccessoryHelper.swift */; };
 		73D6212D1EF02B6700D2877B /* JSONRequestCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D621201EF02B6700D2877B /* JSONRequestCache.swift */; };
 		73D6212E1EF02B6700D2877B /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D621211EF02B6700D2877B /* KeyboardNotification.swift */; };
 		73D6212F1EF02B6700D2877B /* LiveChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D621221EF02B6700D2877B /* LiveChat.swift */; };
@@ -22,6 +21,7 @@
 		73D621361EF02B6700D2877B /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D621291EF02B6700D2877B /* URLBuilder.swift */; };
 		73D621371EF02B6700D2877B /* WebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6212A1EF02B6700D2877B /* WebViewBridge.swift */; };
 		73EFE5061EF0363F00F03B42 /* LiveChatWidget.js in Resources */ = {isa = PBXBuildFile; fileRef = 73EFE5051EF0363F00F03B42 /* LiveChatWidget.js */; };
+		8E0564EA222EA4C500E1982E /* WebViewAnimationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0564E9222EA4C400E1982E /* WebViewAnimationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,6 @@
 		73D621161EF029AF00D2877B /* LiveChat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveChat.h; sourceTree = "<group>"; };
 		73D621171EF029AF00D2877B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73D6211E1EF02B6700D2877B /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		73D6211F1EF02B6700D2877B /* HideInputAccessoryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideInputAccessoryHelper.swift; sourceTree = "<group>"; };
 		73D621201EF02B6700D2877B /* JSONRequestCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONRequestCache.swift; sourceTree = "<group>"; };
 		73D621211EF02B6700D2877B /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		73D621221EF02B6700D2877B /* LiveChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveChat.swift; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		73D621291EF02B6700D2877B /* URLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		73D6212A1EF02B6700D2877B /* WebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewBridge.swift; sourceTree = "<group>"; };
 		73EFE5051EF0363F00F03B42 /* LiveChatWidget.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = LiveChatWidget.js; sourceTree = "<group>"; };
+		8E0564E9222EA4C400E1982E /* WebViewAnimationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewAnimationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +74,8 @@
 		73D621151EF029AF00D2877B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8E0564E9222EA4C400E1982E /* WebViewAnimationCoordinator.swift */,
 				73D6211E1EF02B6700D2877B /* ChatView.swift */,
-				73D6211F1EF02B6700D2877B /* HideInputAccessoryHelper.swift */,
 				73D621171EF029AF00D2877B /* Info.plist */,
 				73D621201EF02B6700D2877B /* JSONRequestCache.swift */,
 				73D621211EF02B6700D2877B /* KeyboardNotification.swift */,
@@ -184,9 +184,9 @@
 				73D621361EF02B6700D2877B /* URLBuilder.swift in Sources */,
 				73D6212E1EF02B6700D2877B /* KeyboardNotification.swift in Sources */,
 				73D6212D1EF02B6700D2877B /* JSONRequestCache.swift in Sources */,
+				8E0564EA222EA4C500E1982E /* WebViewAnimationCoordinator.swift in Sources */,
 				73D621331EF02B6700D2877B /* LiveChatState.swift in Sources */,
 				73D6212F1EF02B6700D2877B /* LiveChat.swift in Sources */,
-				73D6212C1EF02B6700D2877B /* HideInputAccessoryHelper.swift in Sources */,
 				73D621321EF02B6700D2877B /* LiveChatOverlayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
