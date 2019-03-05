@@ -25,7 +25,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     private var animating = false
     var configuration : LiveChatConfiguration? {
         didSet {
-            if let oldValue = oldValue, let configuration = configuration {
+            if let configuration = configuration {
                 if oldValue != configuration {
                     reloadWithDelay()
                 }
