@@ -14,6 +14,7 @@ import UIKit
     @objc optional func handle(URL: URL)
     @objc optional func chatPresented()
     @objc optional func chatDismissed()
+    @objc optional func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
 }
 
 public class LiveChat : NSObject {
@@ -179,6 +180,10 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         previousKeyWindow = nil
         
         window.isHidden = true
+    }
+    
+    @objc func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return delegate?.supportedInterfaceOrientations?() ?? .all
     }
     
     @objc func handle(URL: URL) {
