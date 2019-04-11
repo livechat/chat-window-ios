@@ -8,7 +8,7 @@
 
 import Foundation
 
-func buildUrl(templateURL: String, configuration: LiveChatConfiguration, customVariables: Dictionary<String, String>?, maxLength: Int) -> URL? {
+func buildUrl(templateURL: String, configuration: LiveChatConfiguration, customVariables: CustomVariables?, maxLength: Int) -> URL? {
     var chatURL = templateURL.replacingOccurrences(of: "{%license%}", with: configuration.licenseId)
     chatURL = chatURL.replacingOccurrences(of: "{%group%}", with: configuration.groupId)
     chatURL = "https://".appending(chatURL)
@@ -39,7 +39,7 @@ func buildUrl(templateURL: String, configuration: LiveChatConfiguration, customV
     return url
 }
 
-private func escaped(customVariables: Dictionary<String, String>?) -> String? {
+private func escaped(customVariables: CustomVariables?) -> String? {
     if let customVariables = customVariables {
         var allVariables = ""
         

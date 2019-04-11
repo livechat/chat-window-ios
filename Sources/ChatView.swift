@@ -33,7 +33,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
             
         }
     }
-    var customVariables : Dictionary<String, String>? {
+    var customVariables : CustomVariables? {
         didSet {
             reloadWithDelay()
         }
