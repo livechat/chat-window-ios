@@ -34,7 +34,7 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
             chatView.configuration = configuration
         }
     }
-    var customVariables : Dictionary<String, String>? {
+    var customVariables : CustomVariables? {
         didSet {
             chatView.customVariables = customVariables
         }
