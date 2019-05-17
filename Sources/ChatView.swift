@@ -99,10 +99,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         nc.addObserver(self, selector: #selector(applicationDidBecomeActiveNotification), name: NSNotification.Name.UIApplicationDidBecomeActive
             , object: nil)
         nc.addObserver(self, selector: #selector(applicationWillResignActiveNotification), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
-        nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        nc.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        nc.addObserver(self, selector: #selector(keyboardDidChangeFrameNotification), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
-
     }
     
     deinit {
@@ -251,29 +247,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     
     // MARK: Keyboard frame changes
     
-    @objc func keyboardWillChangeFrameNotification(_ notification: Notification) {
-        let notification = KeyboardNotification(notification)
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        perform(#selector(delayedKeyboardWillChangeFrame(notification:)), with: notification, afterDelay: 0)
-    }
-    
-    @objc func keyboardDidChangeFrameNotification(_ notification: Notification) {
-        let notification = KeyboardNotification(notification)
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        perform(#selector(delayedKeyboardDidChangeFrame(_:)), with: notification, afterDelay: 0)
-    }
-    
-    @objc func delayedKeyboardWillChangeFrame(notification: KeyboardNotification) {
-        let coordinator = WebViewAnimationCoordinator()
-        coordinator.coordinateAnimation(webView!,
-                                        superView: self,
-                                        notification: notification)
-    }
-    
-    @objc func delayedKeyboardDidChangeFrame(_ notification: KeyboardNotification) {
-        triggerResize()
-    }
-    
     private func frameForSafeAreaInsets() -> CGRect {
         var safeAreaInsets = UIEdgeInsets.zero
         if #available(iOS 11.0, *) {
@@ -284,14 +257,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         let frameForSafeAreaInsets = CGRect(x: safeAreaInsets.left, y: safeAreaInsets.top, width: bounds.size.width - safeAreaInsets.left - safeAreaInsets.right, height: bounds.size.height - safeAreaInsets.top - safeAreaInsets.bottom)
         
         return frameForSafeAreaInsets
-    }
-    
-    private func triggerResize() {
-        let targetFrame = frameForSafeAreaInsets()
-        let triggerFrame = CGRect(origin: targetFrame.origin, size: CGSize(width: targetFrame.size.width, height: targetFrame.size.height - 1))
-        webView?.frame = triggerFrame
-        webView?.frame = targetFrame
-    }
+    }    
     
     private func displayLoadingError(withMessage message: String) {
         DispatchQueue.main.async(execute: { [weak self] in
