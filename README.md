@@ -1,6 +1,6 @@
-# iOS chat widget for LiveChat and chat.io
+# iOS chat widget for LiveChat
 
-iOS chat widget for LiveChat and chat.io allows you to integrate [LiveChat](https://livechatinc.com) or [chat.io](https://chat.io) into your iOS app.
+iOS chat widget for LiveChat allows you to integrate [LiveChat](https://livechatinc.com) with your iOS app.
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 [![Version](https://img.shields.io/cocoapods/v/LiveChat.svg?style=flat)](http://cocoapods.org/pods/LiveChat)
@@ -126,7 +126,7 @@ Sample apps for both Swift and Objective-C can be found in the `Examples` folder
 
 ## Getting help
 
-If you have any questions or want to provide feedback, [chat with us!](https://secure-lc.livechatinc.com/licence/8413431/open_chat.cgi)
+If you have any questions or want to provide feedback, [chat with us!](https://secure-lc.livechatinc.com/licence/1520/v2/open_chat.cgi?groups=51)
 
 ## License
 
