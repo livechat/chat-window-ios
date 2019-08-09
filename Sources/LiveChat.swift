@@ -189,7 +189,18 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     }
     
     @objc func handle(URL: URL) {
-        delegate?.handle?(URL: URL)
+        if let delegate = self.delegate {            
+            if delegate.responds(to: #selector(LiveChatDelegate.handle(URL:))) {
+                delegate.handle?(URL: URL)
+                return
+            }
+        }
+        
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(URL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(URL)
+        }
     }
     
     // MARK: WebViewBridgeDelegate
