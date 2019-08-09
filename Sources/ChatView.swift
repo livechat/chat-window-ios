@@ -366,12 +366,6 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
                 
                 if let delegate = self.delegate {
                     delegate.handle(URL: URL)
-                } else {
-                    if #available(iOS 10, *) {
-                        UIApplication.shared.open(URL, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(URL)
-                    }
                 }
                 
                 decisionHandler(.cancel)
