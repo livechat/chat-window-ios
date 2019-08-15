@@ -197,7 +197,7 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         }
         
         if #available(iOS 10, *) {
-            UIApplication.shared.open(URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            UIApplication.shared.open(URL, options: [:], completionHandler: nil)
         } else {
             UIApplication.shared.openURL(URL)
         }
@@ -221,9 +221,4 @@ private class PassThroughWindow: UIWindow {
     override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         return super.hitTest(point, with: event)
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
