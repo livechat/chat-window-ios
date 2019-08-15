@@ -46,3 +46,5 @@ Carthage/Build
 *.save
 *.swp
 .DS_Store
+LiveChat.xcodeproj/project.xcworkspace/xcshareddata/
+LiveChat.xcodeproj/project.xcworkspace/xcuserdata/

@@ -54,7 +54,7 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
         
         // Adding webView to temporary UIWindow to start preloading content.
         preloadingWindow.alpha = 0.0
-        preloadingWindow.windowLevel = UIWindowLevelNormal - 100
+        preloadingWindow.windowLevel = UIWindow.Level.normal - 100
         preloadingWindow.addSubview(chatView)
     }
     
