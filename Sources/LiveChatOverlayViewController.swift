@@ -18,6 +18,7 @@ enum ChatState {
     func closedChatView()
     func handle(URL: URL)
     func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
+    func preferredStatusBarStyle() -> UIStatusBarStyle
 }
 
 class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
@@ -42,6 +43,9 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
     weak var delegate : LiveChatOverlayViewControllerDelegate?
     override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return delegate?.supportedInterfaceOrientations() ?? .all
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return delegate?.preferredStatusBarStyle() ?? .default
     }
     override var shouldAutorotate : Bool {
         return true
