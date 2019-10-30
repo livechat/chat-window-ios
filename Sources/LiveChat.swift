@@ -20,6 +20,10 @@ typealias CustomVariables = [(String, String)]
 }
 
 public class LiveChat : NSObject {
+    
+    @available(iOS 13.0, *)
+    @objc public static var windowScene: UIWindowScene?
+    
     @objc public static var licenseId : String? {
         didSet {
             updateConfiguration()
@@ -96,7 +100,7 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     }
     weak var delegate : LiveChatDelegate?
     fileprivate let overlayViewController = LiveChatOverlayViewController()
-    private let window = PassThroughWindow()
+    fileprivate let window = PassThroughWindow()
     private var previousKeyWindow : UIWindow?
     private let webViewBridge = WebViewBridge()
     static let sharedInstance: Manager = {
@@ -139,6 +143,9 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     
     func presentChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
         previousKeyWindow = UIApplication.shared.keyWindow
+        if #available(iOS 13.0, *) {
+            window.windowScene = LiveChat.windowScene            
+        }
         window.makeKeyAndVisible()
         
         overlayViewController.presentChat(animated: animated, completion: { (finished) in
