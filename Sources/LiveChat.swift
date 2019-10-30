@@ -144,7 +144,9 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     func presentChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
         previousKeyWindow = UIApplication.shared.keyWindow
         if #available(iOS 13.0, *) {
-            window.windowScene = LiveChat.windowScene            
+            if LiveChat.windowScene != nil {
+                window.windowScene = LiveChat.windowScene
+            }
         }
         window.makeKeyAndVisible()
         
