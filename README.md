@@ -96,7 +96,7 @@ LiveChat.setVariable(withKey:"Variable name", value:"Some value")
 You can route your customers to specific group of agents by providing groupId. More information can be found here: https://www.livechatinc.com/kb/dividing-live-chat-by-group/.
 
 ```swift
-LiveChat.groupId = "7"
+LiveChat.groupId = "77"
 ```
 
 ### Notifying the user about the agent's response

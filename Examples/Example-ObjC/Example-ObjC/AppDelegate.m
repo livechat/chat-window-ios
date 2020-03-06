@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     LiveChat.licenseId = @"1520"; // Set your licence number here
-    LiveChat.groupId = @"88"; // Optionally, you can set specific group
+    LiveChat.groupId = @"77"; // Optionally, you can set specific group
     LiveChat.name = @"iOS Widget Example"; // User name and email can be provided if known
     LiveChat.email = @"example@livechatinc.com";
     
