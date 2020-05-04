@@ -141,10 +141,9 @@
 			};
 			buildConfigurationList = 73D6210D1EF029AF00D2877B /* Build configuration list for PBXProject "LiveChat" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = 73D621091EF029AF00D2877B;
