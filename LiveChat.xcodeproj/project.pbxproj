@@ -134,7 +134,7 @@
 				TargetAttributes = {
 					73D621121EF029AF00D2877B = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -326,7 +326,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -347,7 +347,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
