@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'LiveChat'
-  s.version          = '2.0.18'
+  s.version          = '2.0.19'
   s.summary          = 'LiveChat chat window for your iOS app.'
   s.homepage         = 'https://github.com/livechat/chat-window-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/*.{swift}'
   s.resources = 'Sources/*.{js}'
   s.frameworks = 'UIKit', 'WebKit'
-  s.swift_version = '4.0'
+  s.swift_version = '5.0'
 end

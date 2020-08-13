@@ -110,7 +110,7 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     override init() {
         window.backgroundColor = UIColor.clear
         window.frame = UIScreen.main.bounds
-        window.windowLevel = UIWindowLevelNormal + 1
+        window.windowLevel = UIWindow.Level.normal + 1
         window.rootViewController = overlayViewController
         
         super.init()
@@ -119,7 +119,7 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         overlayViewController.delegate = self
         overlayViewController.webViewBridge = webViewBridge
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { (notification) in
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { (notification) in
             if let keyWindow = UIApplication.shared.keyWindow {
                 self.window.frame = keyWindow.frame
             }
@@ -206,7 +206,7 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         }
         
         if #available(iOS 10, *) {
-            UIApplication.shared.open(URL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         } else {
             UIApplication.shared.openURL(URL)
         }
@@ -230,4 +230,9 @@ private class PassThroughWindow: UIWindow {
     override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         return super.hitTest(point, with: event)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
