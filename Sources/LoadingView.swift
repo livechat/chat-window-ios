@@ -345,66 +345,106 @@ private class ActivityIndicator : UIView {
 }
 
 private class ActivityIndicatorLayer : CALayer {
+    
+    // MARK: Properties
+    
+    static let baseSize = 60.0
     let darkCircleLayer = CAShapeLayer()
-    var darkGreyCirclePath : UIBezierPath
+    var darkGreyCirclePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: baseSize, height: baseSize))
+    var outMaskingCirclePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: baseSize, height: baseSize))
+    var maskingCirclePath = UIBezierPath(ovalIn: CGRect(x: 6, y: 6, width: baseSize - 12, height: baseSize - 12))
+    
     let lightCircleLayer = CAShapeLayer()
     var lightGrayCirclePath : UIBezierPath
     let maskingLayer = CAShapeLayer()
-    var maskingCirclePath : UIBezierPath
     let outMaskingLayer = CAShapeLayer()
-    var outMaskingCirclePath : UIBezierPath
+
+    // MARK: Initializers
     
-    let baseSize = 60.0
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
+    override init(layer: Any) {
+        lightGrayCirclePath = ActivityIndicatorLayer.makelightGrayCirclePath(CGFloat(ActivityIndicatorLayer.baseSize))
+        super.init(layer: layer)
+    }
+
     override init() {
-        let lightGray = UIColor(red: 0.824, green: 0.855, blue: 0.890, alpha: 1.000)
-        let darkGrey = UIColor(red: 0.392, green: 0.439, blue: 0.498, alpha: 1.000)
-        
-        darkGreyCirclePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: baseSize, height: baseSize))
-        darkCircleLayer.path = darkGreyCirclePath.cgPath
-        darkCircleLayer.fillColor = darkGrey.cgColor
-        
-        let lightGrayCircleRect = CGRect(x: 0, y: 0, width: baseSize, height: baseSize)
-        lightGrayCirclePath = UIBezierPath()
-        lightGrayCirclePath.addArc(withCenter: CGPoint(x: lightGrayCircleRect.midX, y: lightGrayCircleRect.midY), radius: lightGrayCircleRect.width / 2, startAngle: -45 * CGFloat.pi/180, endAngle: -135 * CGFloat.pi/180, clockwise: true)
-        lightGrayCirclePath.addLine(to: CGPoint(x: lightGrayCircleRect.midX, y: lightGrayCircleRect.midY))
-        lightGrayCirclePath.close()
-        lightCircleLayer.path = lightGrayCirclePath.cgPath
-        lightCircleLayer.fillColor = lightGray.cgColor
-        
-        maskingCirclePath = UIBezierPath(ovalIn: CGRect(x: 6, y: 6, width: baseSize - 12, height: baseSize - 12))
-        maskingLayer.path = maskingCirclePath.cgPath
-        maskingLayer.fillColor = UIColor.white.cgColor
-        
-        outMaskingCirclePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: baseSize, height: baseSize))
-        outMaskingLayer.path = outMaskingCirclePath.cgPath
-        outMaskingLayer.fillColor = UIColor.clear.cgColor
-        
-        outMaskingLayer.strokeColor = UIColor.white.withAlphaComponent(1.0).cgColor
-        outMaskingLayer.lineWidth = 1
+        lightGrayCirclePath = ActivityIndicatorLayer.makelightGrayCirclePath(CGFloat(ActivityIndicatorLayer.baseSize))
         
         super.init()
-        
+        self.setupLayers()
+        self.setupLayersHierarchy()
+    }
+    
+    // MARK: Setup methods
+    
+    func setupLayers() {
+        self.setupDarkCircleLayer()
+        self.setupLightCircleLayer()
+        self.setupOutMaskingLayer()
+        self.setupMaskingLayer()
+    }
+    
+    func setupDarkCircleLayer() {
+        darkCircleLayer.path = darkGreyCirclePath.cgPath
+        darkCircleLayer.fillColor = UIColor(red: 0.392, green: 0.439, blue: 0.498, alpha: 1.000).cgColor
+    }
+    
+    func setupLightCircleLayer() {
+        lightCircleLayer.path = lightGrayCirclePath.cgPath
+        lightCircleLayer.fillColor = UIColor(red: 0.824, green: 0.855, blue: 0.890, alpha: 1.000).cgColor
+    }
+    
+    func setupOutMaskingLayer() {
+        outMaskingLayer.path = outMaskingCirclePath.cgPath
+        outMaskingLayer.fillColor = UIColor.clear.cgColor
+        outMaskingLayer.strokeColor = UIColor.white.withAlphaComponent(1.0).cgColor
+        outMaskingLayer.lineWidth = 1
+    }
+    
+    func setupMaskingLayer() {
+        maskingLayer.path = maskingCirclePath.cgPath
+        maskingLayer.fillColor = UIColor.white.cgColor
+    }
+    
+    func setupLayersHierarchy() {
         addSublayer(darkCircleLayer)
         addSublayer(lightCircleLayer)
         addSublayer(maskingLayer)
         addSublayer(outMaskingLayer)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    static func makelightGrayCirclePath(_ baseSize: CGFloat) -> UIBezierPath {
+        let lightGrayCircleRect = CGRect(x: 0, y: 0, width: baseSize, height: baseSize)
+        let path = UIBezierPath()
+
+        path.addArc(
+            withCenter: CGPoint(x: lightGrayCircleRect.midX, y: lightGrayCircleRect.midY),
+            radius: lightGrayCircleRect.width / 2,
+            startAngle: -45 * CGFloat.pi/180,
+            endAngle: -135 * CGFloat.pi/180,
+            clockwise: true
+        )
+        path.addLine(to: CGPoint(x: lightGrayCircleRect.midX, y: lightGrayCircleRect.midY))
+        path.close()
+
+        return path
     }
     
+    // MARK: Lifecycle methods
+
     override func layoutSublayers() {
         super.layoutSublayers()
-        
+
         darkCircleLayer.frame = bounds
         lightCircleLayer.frame = bounds
         maskingLayer.frame = bounds
         outMaskingLayer.frame = bounds
-        
-        let scalingFactor = bounds.size.width / CGFloat(baseSize)
-        
+
+        let scalingFactor = bounds.size.width / CGFloat(ActivityIndicatorLayer.baseSize)
+
         applyScaled(bezier: darkGreyCirclePath, scalingFactor: scalingFactor, toLayer: darkCircleLayer)
         applyScaled(bezier: lightGrayCirclePath, scalingFactor: scalingFactor, toLayer: lightCircleLayer)
         applyScaled(bezier: maskingCirclePath, scalingFactor: scalingFactor, toLayer: maskingLayer)
