@@ -58,11 +58,16 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         contentController.add(self, name:iOSMessageHandlerName)
         configuration.userContentController = contentController
         
-        let podBundle = Bundle(for: ChatView.self)
+        #if SwiftPM
+        let bundle = Bundle.module
+        #else
+        let bundle = Bundle(for: ChatView.self)
+        #endif
+
         var scriptContent : String?
         
         do {
-            if let path = podBundle.path(forResource: "LiveChatWidget", ofType: "js") {
+            if let path = bundle.path(forResource: "LiveChatWidget", ofType: "js") {
                 scriptContent = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
             }
         } catch {
