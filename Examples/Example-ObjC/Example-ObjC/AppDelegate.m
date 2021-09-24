@@ -52,6 +52,15 @@
     }
 }
 
+- (void)chatPresented {
+    NSLog(@"Chat dismissed");
+}
+
+- (void)chatDismissed {
+    NSLog(@"Chat presented");
+}
+
+
 - (void)handleWithURL:(NSURL *)URL {
     [[UIApplication sharedApplication] openURL:URL];
 }

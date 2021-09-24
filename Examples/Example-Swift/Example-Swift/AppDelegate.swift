@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LiveChatDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         LiveChat.licenseId = "1520" // Set your licence number here
         LiveChat.groupId = "77" // Optionally, you can set specific group
@@ -49,6 +49,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LiveChatDelegate {
             
             window?.rootViewController?.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func chatPresented() {
+        print("Chat presented")
+    }
+    
+    func chatDismissed() {
+        print("Chat dismissed")
     }
     
     func handle(URL: URL) {

@@ -7,214 +7,217 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		024593656672176F22A88532933726FF /* WebViewAnimationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FBF56C25B827291E80D8409A057004 /* WebViewAnimationCoordinator.swift */; };
-		0C8DA46CF273F997AE1F77665F582EBF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB14A55D4DB30C8D98DB7528D9807F4 /* WebKit.framework */; };
-		5A11D887A6B2EA132A9000993B0139F2 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B49F97E74AF779D11FDC2E520260CF1 /* KeyboardNotification.swift */; };
-		5CAA3CD11D8AB762EEFEF8B87712ADBD /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC505937B1CABB356403F8F51954D6F /* ChatView.swift */; };
-		5D7393E3CE71D9075B3FC096829E7681 /* JSONRequestCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE27637204BA5309ECC3F642D692000 /* JSONRequestCache.swift */; };
-		63BDBD9E35D7F2F448D9F26BC615760D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCF78C37CDFCFDEB7867B41FA44FA26 /* UIKit.framework */; };
-		66E970F52DB053FF15FA3CA5EAB0C778 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78303A97700CA406D0BCB9A42F086717 /* Foundation.framework */; };
-		69002391B115470CD2B55A9B37C97C87 /* LiveChat-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 80888BF2CDE4389D9CE5F212E869FCD4 /* LiveChat-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6EEA02E295515B49DA99574E37631915 /* LiveChatConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8C6513A1F1FAA136131CA9D39F1ED5 /* LiveChatConfiguration.swift */; };
-		83A4B127BACB3D4CDEB488262A68E3F8 /* Pods-Example-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AFE6CA32C65203B0D97018EE33FF7A /* Pods-Example-Swift-dummy.m */; };
-		844B0B513D94D120B22166EA58AB0AC1 /* LiveChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B6D0DD2EFAF3A849E47DB49B2BE200 /* LiveChatMessage.swift */; };
-		90D7BCA43005CA07B2CC1C034E51F226 /* LiveChatWidget.js in Resources */ = {isa = PBXBuildFile; fileRef = BF6977A9AFE577D93B57FDD4F8C80D73 /* LiveChatWidget.js */; };
-		920CF8C6CDE1779523406FFF01802420 /* LiveChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77F03FF39B1C57FEB950068E151B39F /* LiveChat.swift */; };
-		9C801CE33B5267347345FB382F6ED758 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E7E6BF4DFE89F7349E9037A4C287DA /* LoadingView.swift */; };
-		A4550A390F49D671062785CA8E019136 /* LiveChatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8C2A083F20FDF382F7352112CF4B3 /* LiveChatState.swift */; };
-		AD4E3C41DB17472B6231B395EAC3C1F8 /* WebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C74BB643825B8EA8D09036441CD792 /* WebViewBridge.swift */; };
-		D547AE4CBE3AF7F802C2D1C9EC51B4EC /* LiveChat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFAAA4D81859620707E6A064BA40A75 /* LiveChat-dummy.m */; };
-		E4970CED56267893B6DC349884BB3979 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B1EEF3AC091947C18506A956F2DCDE /* URLBuilder.swift */; };
-		E8EEF3B70893740F88C706F097F0EA95 /* LiveChatOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD5E0931C46ED80651A70BFDAD8D05 /* LiveChatOverlayViewController.swift */; };
-		E9E860D7AB695C5480D884B3DC01DCB8 /* Pods-Example-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E76078BC0AA79A98F3496656820B01D /* Pods-Example-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EEADB456A9EB56AC8EC180DD8A36B724 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78303A97700CA406D0BCB9A42F086717 /* Foundation.framework */; };
-		FA60770E7D496E2E58CD96C20DAFC92B /* UnreadMessagesCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EA02498F1DFAB55B5AA4A2FF7331CE /* UnreadMessagesCounter.swift */; };
+		037A3B057236A728A39A3AC063A5E73F /* LiveChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D7C64B40F48C1BAC60C3D399745F34 /* LiveChatMessage.swift */; };
+		0BB5C56411FEE66839AB3BB20E09BBA9 /* LiveChatState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74B55FC32FF04DB9BB399DAED8DE70 /* LiveChatState.swift */; };
+		1F0E48F0E9F010276B2915A547751D26 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B5E6652A590C95D263B1D2A43AB37 /* LoadingView.swift */; };
+		31F03AB1942D84E9066183AF827CBD9A /* LiveChatConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57AE92DF63EE86BA5BB6E3E7771C1A /* LiveChatConfiguration.swift */; };
+		39323D85302E76F2E755B8EC88822BDB /* LiveChat-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01631296928DB48FCB721E153C47C0E4 /* LiveChat-dummy.m */; };
+		5FD44F0B9C680FA121AA41F828143424 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C090D1B2BE2C899A27EAF4DDD6309 /* URLBuilder.swift */; };
+		69B7EE9DD5EC30F9A37E9659AF3B7D59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6406D347F5B7E18CF968F77629C4F06E /* Foundation.framework */; };
+		6AE2692A54798425ABDB35FA0C051A95 /* LiveChat-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 004F6252AB0266EF81C35DB2DD01A5B5 /* LiveChat-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70910F6E1A9CB73DAB57BD26EB693D3C /* Pods-Example-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0878801B39036BF52A8B61B7C05FC88D /* Pods-Example-Swift-dummy.m */; };
+		7496289CE1037907509BA77D882E7510 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F84C2F2F12231A8BDB489A37492222 /* WebKit.framework */; };
+		79D16EFFF1F63B41617FBA2A2ED02B92 /* WebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100619ACB140984FE31D1250A7B6053 /* WebViewBridge.swift */; };
+		993C338FBFD6C50819444180983F6AFC /* LiveChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F46AF6C9A612E85680447FBF11DD5 /* LiveChat.swift */; };
+		9D9FF4F016B48280B41698451E105066 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C27F7E6D7B02625DF3B111E5192591 /* UIKit.framework */; };
+		B44FFADE9AC954785DFD532864145F4D /* LiveChatOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56C7EB499045EF956E2EBF656E953C1 /* LiveChatOverlayViewController.swift */; };
+		B4C69AC5DCDA7A2F22DAE38E0AE2A833 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EE49194EEC4D5CCE9A53DF5ADC9F08 /* KeyboardNotification.swift */; };
+		CD3BC2BC976C1A98C84B070E92B344BC /* UnreadMessagesCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D88AA1A3638959145DC9EF0C210179 /* UnreadMessagesCounter.swift */; };
+		D1AA393B9F989F72AE82D01ECDB51153 /* Pods-Example-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD2FA1D097F41AE8A4FA4844DFD8448B /* Pods-Example-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAB55588C0C5FB287A60B36C06847F08 /* JSONRequestCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE232FF5E4CAD0D95AF756BCCB0690 /* JSONRequestCache.swift */; };
+		DDD31E5D08BD9991CB4865594C6675B7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC7345515F70C042BE649FB90D803D /* ChatView.swift */; };
+		E13A6EDA372533F9DE45761719606271 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6406D347F5B7E18CF968F77629C4F06E /* Foundation.framework */; };
+		E909286DFE6970E704E1542979481EF0 /* LiveChatWidget.js in Resources */ = {isa = PBXBuildFile; fileRef = 5BC119DBA81F1115EFD1F286F1556826 /* LiveChatWidget.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5C0763986FD7274674CA3DD538EFB75A /* PBXContainerItemProxy */ = {
+		5FC2B3C60B8670402A3445E154E5F0FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6CFF042B92F1CE1FA434E51588077BD6;
+			remoteGlobalIDString = 543EDBC762E3D9026059F1EE3C5A413C;
 			remoteInfo = LiveChat;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03E1B6295E23498AD0FE9B4BBB9504C0 /* Pods-Example-Swift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Swift-acknowledgements.plist"; sourceTree = "<group>"; };
-		099D19B37C3972E11B2F75A084B6E45F /* LiveChat-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LiveChat-prefix.pch"; sourceTree = "<group>"; };
-		15CFF558132743A84ACBDDD478D941FE /* Pods-Example-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Example-Swift.modulemap"; sourceTree = "<group>"; };
-		1EFAAA4D81859620707E6A064BA40A75 /* LiveChat-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LiveChat-dummy.m"; sourceTree = "<group>"; };
-		229C48D2956E1DA963832C24BB7371A0 /* LiveChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LiveChat.framework; path = LiveChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		240130976BA130A88D943CDA51F0FB91 /* Pods-Example-Swift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-Swift-frameworks.sh"; sourceTree = "<group>"; };
-		2BE27637204BA5309ECC3F642D692000 /* JSONRequestCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONRequestCache.swift; path = Sources/JSONRequestCache.swift; sourceTree = "<group>"; };
-		2DA8C2A083F20FDF382F7352112CF4B3 /* LiveChatState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatState.swift; path = Sources/LiveChatState.swift; sourceTree = "<group>"; };
-		2FC505937B1CABB356403F8F51954D6F /* ChatView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChatView.swift; path = Sources/ChatView.swift; sourceTree = "<group>"; };
-		3515A9E94E973E097A31AC7C9185074D /* Pods-Example-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-Swift.debug.xcconfig"; sourceTree = "<group>"; };
-		47AFE6CA32C65203B0D97018EE33FF7A /* Pods-Example-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-Swift-dummy.m"; sourceTree = "<group>"; };
-		49EA02498F1DFAB55B5AA4A2FF7331CE /* UnreadMessagesCounter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnreadMessagesCounter.swift; path = Sources/UnreadMessagesCounter.swift; sourceTree = "<group>"; };
-		58DD5E0931C46ED80651A70BFDAD8D05 /* LiveChatOverlayViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatOverlayViewController.swift; path = Sources/LiveChatOverlayViewController.swift; sourceTree = "<group>"; };
-		608428876FC79E1067F573F1090BF382 /* Pods-Example-Swift-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-Swift-resources.sh"; sourceTree = "<group>"; };
-		6E76078BC0AA79A98F3496656820B01D /* Pods-Example-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-Swift-umbrella.h"; sourceTree = "<group>"; };
-		78303A97700CA406D0BCB9A42F086717 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		80888BF2CDE4389D9CE5F212E869FCD4 /* LiveChat-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LiveChat-umbrella.h"; sourceTree = "<group>"; };
-		85E803D353C26588B249B3604ADB72FD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9AFE8C988D2AD6036673EBE9DCDADE99 /* LiveChat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LiveChat.xcconfig; sourceTree = "<group>"; };
-		9B49F97E74AF779D11FDC2E520260CF1 /* KeyboardNotification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardNotification.swift; path = Sources/KeyboardNotification.swift; sourceTree = "<group>"; };
-		A3B1EEF3AC091947C18506A956F2DCDE /* URLBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLBuilder.swift; path = Sources/URLBuilder.swift; sourceTree = "<group>"; };
-		A3FBF56C25B827291E80D8409A057004 /* WebViewAnimationCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewAnimationCoordinator.swift; path = Sources/WebViewAnimationCoordinator.swift; sourceTree = "<group>"; };
-		A6E7E6BF4DFE89F7349E9037A4C287DA /* LoadingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = Sources/LoadingView.swift; sourceTree = "<group>"; };
-		A9B6D0DD2EFAF3A849E47DB49B2BE200 /* LiveChatMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatMessage.swift; path = Sources/LiveChatMessage.swift; sourceTree = "<group>"; };
-		ACCF78C37CDFCFDEB7867B41FA44FA26 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B77F03FF39B1C57FEB950068E151B39F /* LiveChat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChat.swift; path = Sources/LiveChat.swift; sourceTree = "<group>"; };
-		BAB14A55D4DB30C8D98DB7528D9807F4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
-		BF6977A9AFE577D93B57FDD4F8C80D73 /* LiveChatWidget.js */ = {isa = PBXFileReference; includeInIndex = 1; name = LiveChatWidget.js; path = Sources/LiveChatWidget.js; sourceTree = "<group>"; };
-		C18E08E2B98F25ED6F70CF2B003D09DD /* Pods-Example-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-Swift.release.xcconfig"; sourceTree = "<group>"; };
-		D2833CC8C44268D727CC2F8AA10AA7F2 /* Pods_Example_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example_Swift.framework; path = "Pods-Example-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D502E4263B50B545110DACD73F6E0823 /* Pods-Example-Swift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-Swift-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DA8C6513A1F1FAA136131CA9D39F1ED5 /* LiveChatConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatConfiguration.swift; path = Sources/LiveChatConfiguration.swift; sourceTree = "<group>"; };
-		E09150126ADF9EC11BB3774C8FFA39E4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5C74BB643825B8EA8D09036441CD792 /* WebViewBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewBridge.swift; path = Sources/WebViewBridge.swift; sourceTree = "<group>"; };
-		EE06E91A21F48CD934BCAEABD46DE944 /* LiveChat.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = LiveChat.modulemap; sourceTree = "<group>"; };
+		004F6252AB0266EF81C35DB2DD01A5B5 /* LiveChat-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LiveChat-umbrella.h"; sourceTree = "<group>"; };
+		01631296928DB48FCB721E153C47C0E4 /* LiveChat-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LiveChat-dummy.m"; sourceTree = "<group>"; };
+		0878801B39036BF52A8B61B7C05FC88D /* Pods-Example-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-Swift-dummy.m"; sourceTree = "<group>"; };
+		0B9B6DA6F7F5568ED1492FAB8AEACEE8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		14F84C2F2F12231A8BDB489A37492222 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
+		1F9B9EBD7AAE596101549C5B4ECA233E /* LiveChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LiveChat.framework; path = LiveChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		207F46AF6C9A612E85680447FBF11DD5 /* LiveChat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChat.swift; path = Sources/LiveChat.swift; sourceTree = "<group>"; };
+		211C184A63D6D1A14BEB1F542510F935 /* Pods-Example-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example-Swift.modulemap"; sourceTree = "<group>"; };
+		28D4ECD611E67A16CFF1C05008BA7E6D /* LiveChat-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LiveChat-prefix.pch"; sourceTree = "<group>"; };
+		2A74B55FC32FF04DB9BB399DAED8DE70 /* LiveChatState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatState.swift; path = Sources/LiveChatState.swift; sourceTree = "<group>"; };
+		2D7B5E6652A590C95D263B1D2A43AB37 /* LoadingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = Sources/LoadingView.swift; sourceTree = "<group>"; };
+		30AE232FF5E4CAD0D95AF756BCCB0690 /* JSONRequestCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONRequestCache.swift; path = Sources/JSONRequestCache.swift; sourceTree = "<group>"; };
+		39A4B4D07A1CA0C49A50972B33C7773F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3A9A023ADD0E15AEBB57573DD27A5C8B /* LiveChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LiveChat.debug.xcconfig; sourceTree = "<group>"; };
+		514408998E7F865FD4D45108DF304677 /* Pods-Example-Swift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Swift-acknowledgements.plist"; sourceTree = "<group>"; };
+		5466B4982CF9B3A7D238C4328A7BB281 /* LiveChat-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LiveChat-Info.plist"; sourceTree = "<group>"; };
+		5BC119DBA81F1115EFD1F286F1556826 /* LiveChatWidget.js */ = {isa = PBXFileReference; includeInIndex = 1; name = LiveChatWidget.js; path = Sources/LiveChatWidget.js; sourceTree = "<group>"; };
+		6406D347F5B7E18CF968F77629C4F06E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		707C872FB5C4E1B98B1F9FD6288755B2 /* LiveChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LiveChat.release.xcconfig; sourceTree = "<group>"; };
+		73EE49194EEC4D5CCE9A53DF5ADC9F08 /* KeyboardNotification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeyboardNotification.swift; path = Sources/KeyboardNotification.swift; sourceTree = "<group>"; };
+		8100619ACB140984FE31D1250A7B6053 /* WebViewBridge.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewBridge.swift; path = Sources/WebViewBridge.swift; sourceTree = "<group>"; };
+		83D7C64B40F48C1BAC60C3D399745F34 /* LiveChatMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatMessage.swift; path = Sources/LiveChatMessage.swift; sourceTree = "<group>"; };
+		951725950F217CCFB0B22EEC818E9235 /* Pods-Example-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		9CE0882835762B7D1A953AB578EABCE0 /* Pods-Example-Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Swift-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A3DFD4F0906413B5373925FFA6C46B42 /* Pods_Example_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example_Swift.framework; path = "Pods-Example-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A56C7EB499045EF956E2EBF656E953C1 /* LiveChatOverlayViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatOverlayViewController.swift; path = Sources/LiveChatOverlayViewController.swift; sourceTree = "<group>"; };
+		A9D88AA1A3638959145DC9EF0C210179 /* UnreadMessagesCounter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnreadMessagesCounter.swift; path = Sources/UnreadMessagesCounter.swift; sourceTree = "<group>"; };
+		AE8C223C4BECF85F627AF978E0D27C82 /* Pods-Example-Swift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-Swift-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B2786BFCD724ED87C6C7A7394027DD48 /* LiveChat.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LiveChat.modulemap; sourceTree = "<group>"; };
+		BAF29A1CFEEBADE770BF80F3C65DB164 /* Pods-Example-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		BD2FA1D097F41AE8A4FA4844DFD8448B /* Pods-Example-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-Swift-umbrella.h"; sourceTree = "<group>"; };
+		E0E96907AE85CCD1E40E8897DE80D5FA /* LiveChat.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LiveChat.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EAEC7345515F70C042BE649FB90D803D /* ChatView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChatView.swift; path = Sources/ChatView.swift; sourceTree = "<group>"; };
+		EB2C090D1B2BE2C899A27EAF4DDD6309 /* URLBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLBuilder.swift; path = Sources/URLBuilder.swift; sourceTree = "<group>"; };
+		EC57AE92DF63EE86BA5BB6E3E7771C1A /* LiveChatConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LiveChatConfiguration.swift; path = Sources/LiveChatConfiguration.swift; sourceTree = "<group>"; };
+		EC9038B7E9A6FFF731333C717F9E77A6 /* Pods-Example-Swift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-Swift-frameworks.sh"; sourceTree = "<group>"; };
+		F9C27F7E6D7B02625DF3B111E5192591 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		018102E7D0B9498BF12E3A7988C05EAE /* Frameworks */ = {
+		148D9BBBC9774FED25ECCF87A83721ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEADB456A9EB56AC8EC180DD8A36B724 /* Foundation.framework in Frameworks */,
+				E13A6EDA372533F9DE45761719606271 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A2D29EB0CE5130549447C730D666F5BF /* Frameworks */ = {
+		E69A590AA2674030BFEC0868DB183EE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66E970F52DB053FF15FA3CA5EAB0C778 /* Foundation.framework in Frameworks */,
-				63BDBD9E35D7F2F448D9F26BC615760D /* UIKit.framework in Frameworks */,
-				0C8DA46CF273F997AE1F77665F582EBF /* WebKit.framework in Frameworks */,
+				69B7EE9DD5EC30F9A37E9659AF3B7D59 /* Foundation.framework in Frameworks */,
+				9D9FF4F016B48280B41698451E105066 /* UIKit.framework in Frameworks */,
+				7496289CE1037907509BA77D882E7510 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3D21A80A7717CA9FF6F518C4E1DFB9D0 /* iOS */,
+				4C9B21C82F9F434A1F20F0753288DC41 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3D21A80A7717CA9FF6F518C4E1DFB9D0 /* iOS */ = {
+		04DA9C37DF38912A307AB44AE5D2EF07 /* LiveChat */ = {
 			isa = PBXGroup;
 			children = (
-				78303A97700CA406D0BCB9A42F086717 /* Foundation.framework */,
-				ACCF78C37CDFCFDEB7867B41FA44FA26 /* UIKit.framework */,
-				BAB14A55D4DB30C8D98DB7528D9807F4 /* WebKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				CEBE8BC097A85D82610133F69E9C5CFD /* Development Pods */,
-				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				EA46AE82DC4520451B47E4073F0B3D58 /* Products */,
-				EF8AA359D0F584D024D4622F2B359822 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		9CF08FD5832A6E634F078CDE93C45E72 /* Pods-Example-Swift */ = {
-			isa = PBXGroup;
-			children = (
-				E09150126ADF9EC11BB3774C8FFA39E4 /* Info.plist */,
-				15CFF558132743A84ACBDDD478D941FE /* Pods-Example-Swift.modulemap */,
-				D502E4263B50B545110DACD73F6E0823 /* Pods-Example-Swift-acknowledgements.markdown */,
-				03E1B6295E23498AD0FE9B4BBB9504C0 /* Pods-Example-Swift-acknowledgements.plist */,
-				47AFE6CA32C65203B0D97018EE33FF7A /* Pods-Example-Swift-dummy.m */,
-				240130976BA130A88D943CDA51F0FB91 /* Pods-Example-Swift-frameworks.sh */,
-				608428876FC79E1067F573F1090BF382 /* Pods-Example-Swift-resources.sh */,
-				6E76078BC0AA79A98F3496656820B01D /* Pods-Example-Swift-umbrella.h */,
-				3515A9E94E973E097A31AC7C9185074D /* Pods-Example-Swift.debug.xcconfig */,
-				C18E08E2B98F25ED6F70CF2B003D09DD /* Pods-Example-Swift.release.xcconfig */,
-			);
-			name = "Pods-Example-Swift";
-			path = "Target Support Files/Pods-Example-Swift";
-			sourceTree = "<group>";
-		};
-		A11987114CB793E5D26934940A688A86 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				85E803D353C26588B249B3604ADB72FD /* Info.plist */,
-				EE06E91A21F48CD934BCAEABD46DE944 /* LiveChat.modulemap */,
-				9AFE8C988D2AD6036673EBE9DCDADE99 /* LiveChat.xcconfig */,
-				1EFAAA4D81859620707E6A064BA40A75 /* LiveChat-dummy.m */,
-				099D19B37C3972E11B2F75A084B6E45F /* LiveChat-prefix.pch */,
-				80888BF2CDE4389D9CE5F212E869FCD4 /* LiveChat-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Examples/Example-Swift/Pods/Target Support Files/LiveChat";
-			sourceTree = "<group>";
-		};
-		C2BC07E53B9D850FD76C5849F0C139DB /* LiveChat */ = {
-			isa = PBXGroup;
-			children = (
-				2FC505937B1CABB356403F8F51954D6F /* ChatView.swift */,
-				2BE27637204BA5309ECC3F642D692000 /* JSONRequestCache.swift */,
-				9B49F97E74AF779D11FDC2E520260CF1 /* KeyboardNotification.swift */,
-				B77F03FF39B1C57FEB950068E151B39F /* LiveChat.swift */,
-				DA8C6513A1F1FAA136131CA9D39F1ED5 /* LiveChatConfiguration.swift */,
-				A9B6D0DD2EFAF3A849E47DB49B2BE200 /* LiveChatMessage.swift */,
-				58DD5E0931C46ED80651A70BFDAD8D05 /* LiveChatOverlayViewController.swift */,
-				2DA8C2A083F20FDF382F7352112CF4B3 /* LiveChatState.swift */,
-				A6E7E6BF4DFE89F7349E9037A4C287DA /* LoadingView.swift */,
-				49EA02498F1DFAB55B5AA4A2FF7331CE /* UnreadMessagesCounter.swift */,
-				A3B1EEF3AC091947C18506A956F2DCDE /* URLBuilder.swift */,
-				A3FBF56C25B827291E80D8409A057004 /* WebViewAnimationCoordinator.swift */,
-				E5C74BB643825B8EA8D09036441CD792 /* WebViewBridge.swift */,
-				CF1BB20A7243806DB13A539E26FFC89B /* Resources */,
-				A11987114CB793E5D26934940A688A86 /* Support Files */,
+				EAEC7345515F70C042BE649FB90D803D /* ChatView.swift */,
+				30AE232FF5E4CAD0D95AF756BCCB0690 /* JSONRequestCache.swift */,
+				73EE49194EEC4D5CCE9A53DF5ADC9F08 /* KeyboardNotification.swift */,
+				207F46AF6C9A612E85680447FBF11DD5 /* LiveChat.swift */,
+				EC57AE92DF63EE86BA5BB6E3E7771C1A /* LiveChatConfiguration.swift */,
+				83D7C64B40F48C1BAC60C3D399745F34 /* LiveChatMessage.swift */,
+				A56C7EB499045EF956E2EBF656E953C1 /* LiveChatOverlayViewController.swift */,
+				2A74B55FC32FF04DB9BB399DAED8DE70 /* LiveChatState.swift */,
+				5BC119DBA81F1115EFD1F286F1556826 /* LiveChatWidget.js */,
+				2D7B5E6652A590C95D263B1D2A43AB37 /* LoadingView.swift */,
+				A9D88AA1A3638959145DC9EF0C210179 /* UnreadMessagesCounter.swift */,
+				EB2C090D1B2BE2C899A27EAF4DDD6309 /* URLBuilder.swift */,
+				8100619ACB140984FE31D1250A7B6053 /* WebViewBridge.swift */,
+				A14C9D8075BD9113425E735D54631D25 /* Pod */,
+				4F5711CE350A8F579ED26E56B32B53E4 /* Support Files */,
 			);
 			name = LiveChat;
 			path = ../../..;
 			sourceTree = "<group>";
 		};
-		CEBE8BC097A85D82610133F69E9C5CFD /* Development Pods */ = {
+		4C9B21C82F9F434A1F20F0753288DC41 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C2BC07E53B9D850FD76C5849F0C139DB /* LiveChat */,
+				6406D347F5B7E18CF968F77629C4F06E /* Foundation.framework */,
+				F9C27F7E6D7B02625DF3B111E5192591 /* UIKit.framework */,
+				14F84C2F2F12231A8BDB489A37492222 /* WebKit.framework */,
 			);
-			name = "Development Pods";
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		CF1BB20A7243806DB13A539E26FFC89B /* Resources */ = {
+		4F5711CE350A8F579ED26E56B32B53E4 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF6977A9AFE577D93B57FDD4F8C80D73 /* LiveChatWidget.js */,
+				B2786BFCD724ED87C6C7A7394027DD48 /* LiveChat.modulemap */,
+				01631296928DB48FCB721E153C47C0E4 /* LiveChat-dummy.m */,
+				5466B4982CF9B3A7D238C4328A7BB281 /* LiveChat-Info.plist */,
+				28D4ECD611E67A16CFF1C05008BA7E6D /* LiveChat-prefix.pch */,
+				004F6252AB0266EF81C35DB2DD01A5B5 /* LiveChat-umbrella.h */,
+				3A9A023ADD0E15AEBB57573DD27A5C8B /* LiveChat.debug.xcconfig */,
+				707C872FB5C4E1B98B1F9FD6288755B2 /* LiveChat.release.xcconfig */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "Examples/Example-Swift/Pods/Target Support Files/LiveChat";
 			sourceTree = "<group>";
 		};
-		EA46AE82DC4520451B47E4073F0B3D58 /* Products */ = {
+		5C2B030BA0EC03968D69744C01C88516 /* Pods-Example-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				229C48D2956E1DA963832C24BB7371A0 /* LiveChat.framework */,
-				D2833CC8C44268D727CC2F8AA10AA7F2 /* Pods_Example_Swift.framework */,
+				211C184A63D6D1A14BEB1F542510F935 /* Pods-Example-Swift.modulemap */,
+				AE8C223C4BECF85F627AF978E0D27C82 /* Pods-Example-Swift-acknowledgements.markdown */,
+				514408998E7F865FD4D45108DF304677 /* Pods-Example-Swift-acknowledgements.plist */,
+				0878801B39036BF52A8B61B7C05FC88D /* Pods-Example-Swift-dummy.m */,
+				EC9038B7E9A6FFF731333C717F9E77A6 /* Pods-Example-Swift-frameworks.sh */,
+				9CE0882835762B7D1A953AB578EABCE0 /* Pods-Example-Swift-Info.plist */,
+				BD2FA1D097F41AE8A4FA4844DFD8448B /* Pods-Example-Swift-umbrella.h */,
+				BAF29A1CFEEBADE770BF80F3C65DB164 /* Pods-Example-Swift.debug.xcconfig */,
+				951725950F217CCFB0B22EEC818E9235 /* Pods-Example-Swift.release.xcconfig */,
+			);
+			name = "Pods-Example-Swift";
+			path = "Target Support Files/Pods-Example-Swift";
+			sourceTree = "<group>";
+		};
+		60749310B2CA02945CEECDF07DB6756D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F9B9EBD7AAE596101549C5B4ECA233E /* LiveChat.framework */,
+				A3DFD4F0906413B5373925FFA6C46B42 /* Pods_Example_Swift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EF8AA359D0F584D024D4622F2B359822 /* Targets Support Files */ = {
+		921B04C476C696AD83591A4C2FC82AA5 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9CF08FD5832A6E634F078CDE93C45E72 /* Pods-Example-Swift */,
+				04DA9C37DF38912A307AB44AE5D2EF07 /* LiveChat */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		A14C9D8075BD9113425E735D54631D25 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				39A4B4D07A1CA0C49A50972B33C7773F /* LICENSE */,
+				E0E96907AE85CCD1E40E8897DE80D5FA /* LiveChat.podspec */,
+				0B9B6DA6F7F5568ED1492FAB8AEACEE8 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				921B04C476C696AD83591A4C2FC82AA5 /* Development Pods */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				60749310B2CA02945CEECDF07DB6756D /* Products */,
+				EB5004C7CE3C52D91E43E8F3687A83BC /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		EB5004C7CE3C52D91E43E8F3687A83BC /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5C2B030BA0EC03968D69744C01C88516 /* Pods-Example-Swift */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -222,33 +225,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3D35D6E78D3928BDAB2C57D1BAC08AC1 /* Headers */ = {
+		42D6D832A6CCBA27FEAB69A378C00F45 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69002391B115470CD2B55A9B37C97C87 /* LiveChat-umbrella.h in Headers */,
+				6AE2692A54798425ABDB35FA0C051A95 /* LiveChat-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2B770A4F3EB1D13DFD008EBDEC89FC4 /* Headers */ = {
+		E74FAD2A98326FAEFC9E1902F92D83FF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9E860D7AB695C5480D884B3DC01DCB8 /* Pods-Example-Swift-umbrella.h in Headers */,
+				D1AA393B9F989F72AE82D01ECDB51153 /* Pods-Example-Swift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6CFF042B92F1CE1FA434E51588077BD6 /* LiveChat */ = {
+		088B31BA8BC3174C8D238BB01A8025EA /* Pods-Example-Swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FB0C3B802024B4B59FF62581D31B1CC /* Build configuration list for PBXNativeTarget "LiveChat" */;
+			buildConfigurationList = E60D59D80A1258AB52C62BBA952DE44A /* Build configuration list for PBXNativeTarget "Pods-Example-Swift" */;
 			buildPhases = (
-				C38D08E80BEA6F8FE922096AD9B9918D /* Sources */,
-				A2D29EB0CE5130549447C730D666F5BF /* Frameworks */,
-				E35325AD11E94217389FD6ED99F34578 /* Resources */,
-				3D35D6E78D3928BDAB2C57D1BAC08AC1 /* Headers */,
+				E74FAD2A98326FAEFC9E1902F92D83FF /* Headers */,
+				653DF14C9CCD3AEB3AF20025318BE036 /* Sources */,
+				148D9BBBC9774FED25ECCF87A83721ED /* Frameworks */,
+				07A8FEB53A60A5B5D8A5FD1CBD6A655D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21B12477948E2E52109728532D82A5C1 /* PBXTargetDependency */,
+			);
+			name = "Pods-Example-Swift";
+			productName = "Pods-Example-Swift";
+			productReference = A3DFD4F0906413B5373925FFA6C46B42 /* Pods_Example_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		543EDBC762E3D9026059F1EE3C5A413C /* LiveChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0D38558EDD164F44FE762817C71F29C /* Build configuration list for PBXNativeTarget "LiveChat" */;
+			buildPhases = (
+				42D6D832A6CCBA27FEAB69A378C00F45 /* Headers */,
+				E12AFF281763F6A0BDD4CA7F8358FEC4 /* Sources */,
+				E69A590AA2674030BFEC0868DB183EE3 /* Frameworks */,
+				5555B437236179089EF060034D59E765 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -256,112 +278,103 @@
 			);
 			name = LiveChat;
 			productName = LiveChat;
-			productReference = 229C48D2956E1DA963832C24BB7371A0 /* LiveChat.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		CAEE1EDCCC1F27EDD3BEA299DB770406 /* Pods-Example-Swift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 419B9F391992FF8EC59EEBA05AD4F977 /* Build configuration list for PBXNativeTarget "Pods-Example-Swift" */;
-			buildPhases = (
-				73434210E6720BFB844402C8DD105ED4 /* Sources */,
-				018102E7D0B9498BF12E3A7988C05EAE /* Frameworks */,
-				E2B770A4F3EB1D13DFD008EBDEC89FC4 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F8CD8D151F50BC8D8171D0DDB05B4FCD /* PBXTargetDependency */,
-			);
-			name = "Pods-Example-Swift";
-			productName = "Pods-Example-Swift";
-			productReference = D2833CC8C44268D727CC2F8AA10AA7F2 /* Pods_Example_Swift.framework */;
+			productReference = 1F9B9EBD7AAE596101549C5B4ECA233E /* LiveChat.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = EA46AE82DC4520451B47E4073F0B3D58 /* Products */;
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 60749310B2CA02945CEECDF07DB6756D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6CFF042B92F1CE1FA434E51588077BD6 /* LiveChat */,
-				CAEE1EDCCC1F27EDD3BEA299DB770406 /* Pods-Example-Swift */,
+				543EDBC762E3D9026059F1EE3C5A413C /* LiveChat */,
+				088B31BA8BC3174C8D238BB01A8025EA /* Pods-Example-Swift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E35325AD11E94217389FD6ED99F34578 /* Resources */ = {
+		07A8FEB53A60A5B5D8A5FD1CBD6A655D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90D7BCA43005CA07B2CC1C034E51F226 /* LiveChatWidget.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5555B437236179089EF060034D59E765 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E909286DFE6970E704E1542979481EF0 /* LiveChatWidget.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		73434210E6720BFB844402C8DD105ED4 /* Sources */ = {
+		653DF14C9CCD3AEB3AF20025318BE036 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83A4B127BACB3D4CDEB488262A68E3F8 /* Pods-Example-Swift-dummy.m in Sources */,
+				70910F6E1A9CB73DAB57BD26EB693D3C /* Pods-Example-Swift-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C38D08E80BEA6F8FE922096AD9B9918D /* Sources */ = {
+		E12AFF281763F6A0BDD4CA7F8358FEC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CAA3CD11D8AB762EEFEF8B87712ADBD /* ChatView.swift in Sources */,
-				5D7393E3CE71D9075B3FC096829E7681 /* JSONRequestCache.swift in Sources */,
-				5A11D887A6B2EA132A9000993B0139F2 /* KeyboardNotification.swift in Sources */,
-				D547AE4CBE3AF7F802C2D1C9EC51B4EC /* LiveChat-dummy.m in Sources */,
-				920CF8C6CDE1779523406FFF01802420 /* LiveChat.swift in Sources */,
-				6EEA02E295515B49DA99574E37631915 /* LiveChatConfiguration.swift in Sources */,
-				844B0B513D94D120B22166EA58AB0AC1 /* LiveChatMessage.swift in Sources */,
-				E8EEF3B70893740F88C706F097F0EA95 /* LiveChatOverlayViewController.swift in Sources */,
-				A4550A390F49D671062785CA8E019136 /* LiveChatState.swift in Sources */,
-				9C801CE33B5267347345FB382F6ED758 /* LoadingView.swift in Sources */,
-				FA60770E7D496E2E58CD96C20DAFC92B /* UnreadMessagesCounter.swift in Sources */,
-				E4970CED56267893B6DC349884BB3979 /* URLBuilder.swift in Sources */,
-				024593656672176F22A88532933726FF /* WebViewAnimationCoordinator.swift in Sources */,
-				AD4E3C41DB17472B6231B395EAC3C1F8 /* WebViewBridge.swift in Sources */,
+				DDD31E5D08BD9991CB4865594C6675B7 /* ChatView.swift in Sources */,
+				DAB55588C0C5FB287A60B36C06847F08 /* JSONRequestCache.swift in Sources */,
+				B4C69AC5DCDA7A2F22DAE38E0AE2A833 /* KeyboardNotification.swift in Sources */,
+				39323D85302E76F2E755B8EC88822BDB /* LiveChat-dummy.m in Sources */,
+				993C338FBFD6C50819444180983F6AFC /* LiveChat.swift in Sources */,
+				31F03AB1942D84E9066183AF827CBD9A /* LiveChatConfiguration.swift in Sources */,
+				037A3B057236A728A39A3AC063A5E73F /* LiveChatMessage.swift in Sources */,
+				B44FFADE9AC954785DFD532864145F4D /* LiveChatOverlayViewController.swift in Sources */,
+				0BB5C56411FEE66839AB3BB20E09BBA9 /* LiveChatState.swift in Sources */,
+				1F0E48F0E9F010276B2915A547751D26 /* LoadingView.swift in Sources */,
+				CD3BC2BC976C1A98C84B070E92B344BC /* UnreadMessagesCounter.swift in Sources */,
+				5FD44F0B9C680FA121AA41F828143424 /* URLBuilder.swift in Sources */,
+				79D16EFFF1F63B41617FBA2A2ED02B92 /* WebViewBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F8CD8D151F50BC8D8171D0DDB05B4FCD /* PBXTargetDependency */ = {
+		21B12477948E2E52109728532D82A5C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LiveChat;
-			target = 6CFF042B92F1CE1FA434E51588077BD6 /* LiveChat */;
-			targetProxy = 5C0763986FD7274674CA3DD538EFB75A /* PBXContainerItemProxy */;
+			target = 543EDBC762E3D9026059F1EE3C5A413C /* LiveChat */;
+			targetProxy = 5FC2B3C60B8670402A3445E154E5F0FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3B66AC0734F2827DCFE5CA108883AB58 /* Debug */ = {
+		2EEE5EA6561135B72A49298A80823C49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3515A9E94E973E097A31AC7C9185074D /* Pods-Example-Swift.debug.xcconfig */;
+			baseConfigurationReference = 951725950F217CCFB0B22EEC818E9235 /* Pods-Example-Swift.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -370,9 +383,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Example-Swift/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Example-Swift/Pods-Example-Swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Example-Swift/Pods-Example-Swift.modulemap";
@@ -380,44 +393,9 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Example_Swift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5F6CDA63EED77FE2D20DAA4B765C7705 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C18E08E2B98F25ED6F70CF2B003D09DD /* Pods-Example-Swift.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Example-Swift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Example-Swift/Pods-Example-Swift.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Example_Swift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -425,20 +403,57 @@
 			};
 			name = Release;
 		};
-		6F9224530522DD3C735EC96CF142642E /* Release */ = {
+		4039F27438FE53601213F90481806987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAF29A1CFEEBADE770BF80F3C65DB164 /* Pods-Example-Swift.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Example-Swift/Pods-Example-Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Example-Swift/Pods-Example-Swift.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -446,15 +461,16 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -471,20 +487,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		70378715A84A229BA2C67671B7055116 /* Debug */ = {
+		A322D528555496E2C30F4E644884FE8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AFE8C988D2AD6036673EBE9DCDADE99 /* LiveChat.xcconfig */;
+			baseConfigurationReference = 707C872FB5C4E1B98B1F9FD6288755B2 /* LiveChat.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -494,48 +514,17 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PREFIX_HEADER = "Target Support Files/LiveChat/LiveChat-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LiveChat/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/LiveChat/LiveChat-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/LiveChat/LiveChat.modulemap";
+				PRODUCT_MODULE_NAME = LiveChat;
 				PRODUCT_NAME = LiveChat;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9747C469DBD11B77340DC16B9734C1FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AFE8C988D2AD6036673EBE9DCDADE99 /* LiveChat.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LiveChat/LiveChat-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LiveChat/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LiveChat/LiveChat.modulemap";
-				PRODUCT_NAME = LiveChat;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -543,20 +532,55 @@
 			};
 			name = Release;
 		};
-		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
+		B357948998EF677DBFF343873EA86E07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A9A023ADD0E15AEBB57573DD27A5C8B /* LiveChat.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LiveChat/LiveChat-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LiveChat/LiveChat-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LiveChat/LiveChat.modulemap";
+				PRODUCT_MODULE_NAME = LiveChat;
+				PRODUCT_NAME = LiveChat;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B4EFE046ACF8F37157F6E322C7FCFC28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -564,15 +588,16 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -592,13 +617,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
@@ -606,34 +633,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B57951D085A1B98A97F8A1062A5E5C5B /* Debug */,
-				6F9224530522DD3C735EC96CF142642E /* Release */,
+				B4EFE046ACF8F37157F6E322C7FCFC28 /* Debug */,
+				903A0004D3E6651EFD5D2E16214D101B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		419B9F391992FF8EC59EEBA05AD4F977 /* Build configuration list for PBXNativeTarget "Pods-Example-Swift" */ = {
+		B0D38558EDD164F44FE762817C71F29C /* Build configuration list for PBXNativeTarget "LiveChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B66AC0734F2827DCFE5CA108883AB58 /* Debug */,
-				5F6CDA63EED77FE2D20DAA4B765C7705 /* Release */,
+				B357948998EF677DBFF343873EA86E07 /* Debug */,
+				A322D528555496E2C30F4E644884FE8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FB0C3B802024B4B59FF62581D31B1CC /* Build configuration list for PBXNativeTarget "LiveChat" */ = {
+		E60D59D80A1258AB52C62BBA952DE44A /* Build configuration list for PBXNativeTarget "Pods-Example-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				70378715A84A229BA2C67671B7055116 /* Debug */,
-				9747C469DBD11B77340DC16B9734C1FC /* Release */,
+				4039F27438FE53601213F90481806987 /* Debug */,
+				2EEE5EA6561135B72A49298A80823C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }

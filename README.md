@@ -119,6 +119,45 @@ class YOUR_CLASS_NAME : LiveChatDelegate { // Your class need to implement LiveC
 }
 ```
 
+Sample message structure.
+
+```swift
+{
+    author = {
+        name = "Support Bot";
+    };
+    id = "QZ0X4O6PAV_3";
+    messageType = newMessage;
+    text = "I'm a HelpDesk Bot, here to assist you with any HelpDesk questions!";
+    timestamp = 1632478822776;
+}
+```
+
+### Handling chat window resence events
+
+On the SDK level it's also possible to handle chat window presence events. To do so, your class must implement `LiveChatDelegate` protocol and set itself as `LiveChat.delegate`.
+
+```swift
+class YOUR_CLASS_NAME : LiveChatDelegate { // Your class need to implement LiveChatDelegate protocol
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        LiveChat.licenseId = "YOUR_LICENSE_ID"
+        LiveChat.delegate = self // Set self as delegate
+
+        return true
+    }
+    
+    func chatPresented() {
+        print("Chat presented")
+        // Handle event here
+    }
+    
+    func chatDismissed() {
+        print("Chat dismissed")
+        // Handle event here
+    }    
+}
+```
+
 ### Handling URL
 
 By default, all links in chat messages are opened in Safari browser. To change this behavior you can use the `LiveChatDelegate` to handle URL's yourself.
