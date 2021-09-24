@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'LiveChat'
-  s.version          = '2.0.21'
+  s.version          = '2.0.22'
   s.summary          = 'LiveChat chat window for your iOS app.'
   s.homepage         = 'https://github.com/livechat/chat-window-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Łukasz Jerciński' => 'l.jercinski@gmail.com' }
+  s.author           = { 'LiveChat Inc' => 'kamil.szostakowski@gmail.com' }
   s.source           = { :git => 'https://github.com/livechat/chat-window-ios.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '11.0'
