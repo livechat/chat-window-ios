@@ -54,6 +54,8 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         super.init(frame: frame)
         
         let configuration = WKWebViewConfiguration()
+        configuration.mediaTypesRequiringUserActionForPlayback = []
+        configuration.allowsInlineMediaPlayback = true
         let contentController = WKUserContentController()
         contentController.add(self, name:iOSMessageHandlerName)
         configuration.userContentController = contentController

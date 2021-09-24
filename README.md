@@ -19,7 +19,7 @@ iOS chat widget for LiveChat allows you to integrate [LiveChat](https://livechat
 If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add 'livechat/chat-window-ios' to your `Cartfile`.
 
 ```
-github "livechat/chat-window-ios" ~> 2.0.21
+github "livechat/chat-window-ios" ~> 2.0.22
 ```
 
 Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have include it in your Carthage framework copying build phase.
@@ -29,7 +29,7 @@ Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Lib
 If you use [CocoaPods](http://cocoapods.org) to manage your dependencies, simply add LiveChat to your `Podfile`.
 
 ```bash
-pod 'LiveChat', '~> 2.0.21'
+pod 'LiveChat', '~> 2.0.22'
 ```
 
 ### Manual Installation
@@ -178,7 +178,7 @@ If you have file sharing enabled for the visitors, you should provide usage desc
 ### Snap Call
 
 LiveChat SDK offers built in Snap Call (https://snapcall.io) integration. To benefit from that feature you have to prepare you application for requesting a mic permission from the user.
-That can be done by adding the `NSMicrophoneUsageDescription` key to the `Info.plist` file. 
+That can be done by adding `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` keys to the `Info.plist` file. 
 
 ## Sample Apps
 
