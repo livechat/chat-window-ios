@@ -173,6 +173,13 @@ func handle(URL: URL) {
 
 If you have file sharing enabled for the visitors, you should provide usage description by including `NSPhotoLibraryUsageDescription` (`Privacy - Photo Library Usage Description`), `NSCameraUsageDescription` (`Privacy - Camera Usage Description`) and `NSMicrophoneUsageDescription` (`Privacy - Microphone Usage Description`) keys in your `Info.plist` file to avoid crash on iOS 10 or higher. You can check `Info.plist` files in example projects.
 
+## Third party integrations
+
+### Snap Call
+
+LiveChat SDK offers built in Snap Call (https://snapcall.io) integration. To benefit from that feature you have to prepare you application for requesting a mic permission from the user.
+That can be done by adding the `NSMicrophoneUsageDescription` key to the `Info.plist` file. 
+
 ## Sample Apps
 
 Sample apps for both Swift and Objective-C can be found in the `Examples` folder.
