@@ -19,7 +19,7 @@ iOS chat widget for LiveChat allows you to integrate [LiveChat](https://livechat
 If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add 'livechat/chat-window-ios' to your `Cartfile`.
 
 ```
-github "livechat/chat-window-ios" ~> 2.0.23
+github "livechat/chat-window-ios" ~> 2.0.24
 ```
 
 Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have include it in your Carthage framework copying build phase.
@@ -29,7 +29,7 @@ Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Lib
 If you use [CocoaPods](http://cocoapods.org) to manage your dependencies, simply add LiveChat to your `Podfile`.
 
 ```bash
-pod 'LiveChat', '~> 2.0.23'
+pod 'LiveChat', '~> 2.0.24'
 ```
 
 ### Manual Installation
@@ -56,10 +56,37 @@ import LiveChat
 LiveChat.licenseId = "YOUR_LICENSE_ID"
 ```
 
-### Presenting Chat Widget
+### Default Chat Widget presentation
 
 ```swift
 LiveChat.presentChat()
+```
+
+### Presenting Chat Widget within client app view hierarchy
+
+You can also take over the a responsibility for widget presentation within you app. To do so you have to set the `customPresentationStyleEnabled` flag to `true`.
+This flag will disable the default widget's presentation behavior and leave that logic up to you. You can now access the `chatViewController` property and define your own presentation style.
+
+When `customPresentationStyleEnabled` is set to `false` then `chatViewController` has a value of `nil`.
+
+```swift
+class YOUR_CLASS_NAME : UIViewControler, LiveChatDelegate { // Your class need to implement LiveChatDelegate protocol
+
+    @IBAction func openChat(_ sender: Any) {  
+        LiveChat.delegate = self
+        LiveChat.customPresentationStyleEnabled = true
+
+        present(LiveChat.chatViewController!, animated: true) {
+            print("Presentation completed")
+        }
+    }
+
+    func chatDismissed() {
+        LiveChat.chatViewController!.dismiss(animated: true) {
+            print("Presentation dismissed")
+        }
+    }
+}
 ```
 
 ### Using UIWindowSceneDelegate

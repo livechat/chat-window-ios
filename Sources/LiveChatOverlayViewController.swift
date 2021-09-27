@@ -19,6 +19,7 @@ enum ChatState {
     func handle(URL: URL)
     func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
     func chatLoadingFailed(with error: Error)
+    func overlayWillShow(animated: Bool)
 }
 
 class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
@@ -58,6 +59,11 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
         preloadingWindow.windowLevel = UIWindow.Level.normal - 100
         preloadingWindow.addSubview(chatView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        delegate?.overlayWillShow(animated: true)
+    }    
     
     // MARK: Public methods
     

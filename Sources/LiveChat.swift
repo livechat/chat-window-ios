@@ -11,6 +11,11 @@ import UIKit
 
 typealias CustomVariables = [(String, String)]
 
+enum ChatWindowDisplayMode {
+    case window
+    case viewController
+}
+
 @objc public protocol LiveChatDelegate : NSObjectProtocol {
     @objc optional func received(message: LiveChatMessage)
     @objc optional func handle(URL: URL)
@@ -44,6 +49,11 @@ public class LiveChat : NSObject {
         didSet {
             updateConfiguration()
         }
+    }
+    
+    @objc public static var customPresentationStyleEnabled : Bool {
+        get { Manager.sharedInstance.chatWindowDisplayMode == .viewController }        
+        set { Manager.sharedInstance.chatWindowDisplayMode = newValue ? .viewController : .window }
     }
     
     @objc public static weak var delegate : LiveChatDelegate? {
@@ -80,6 +90,10 @@ public class LiveChat : NSObject {
         Manager.sharedInstance.clearSession()
     }
     
+    @objc public class var chatViewController: UIViewController? {
+        customPresentationStyleEnabled ? Manager.sharedInstance.overlayViewController : nil
+    }
+    
     private class func updateConfiguration() {
         if let licenseId = self.licenseId {
             let conf = LiveChatConfiguration(licenseId: licenseId, groupId: self.groupId ?? "0", name: self.name ?? "", email: self.email ?? "")
@@ -102,6 +116,7 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     weak var delegate : LiveChatDelegate?
     fileprivate let overlayViewController = LiveChatOverlayViewController()
     fileprivate let window = PassThroughWindow()
+    fileprivate var chatWindowDisplayMode: ChatWindowDisplayMode = .window
     private var previousKeyWindow : UIWindow?
     private let webViewBridge = WebViewBridge()
     static let sharedInstance: Manager = {
@@ -143,40 +158,25 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     }
     
     func presentChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
-        previousKeyWindow = UIApplication.shared.keyWindow
-        if #available(iOS 13.0, *) {
-            if LiveChat.windowScene != nil {
-                window.windowScene = LiveChat.windowScene
-            }
-        }
-        window.makeKeyAndVisible()
-        
+        makeWindowVisibleIfNeeded()
         overlayViewController.presentChat(animated: animated, completion: { (finished) in
             if finished {
                 UnreadMessagesCounter.resetCounter()
                 self.delegate?.chatPresented?()
             }
             
-            if let completion = completion {
-                completion(finished)
-            }
+            completion?(finished)
         })
     }
     
     func dismissChat(animated: Bool, completion: ((Bool) -> Void)? = nil) {
-        overlayViewController.dismissChat(animated: animated, completion: { (finished) in
+        overlayViewController.dismissChat(animated: animated, completion: { [weak self] (finished) in
             if finished {
-                self.previousKeyWindow?.makeKeyAndVisible()
-                self.previousKeyWindow = nil
-                
-                self.window.isHidden = true
-                
+                self?.makeWindowHiddenIfNeeded()
                 UnreadMessagesCounter.resetCounter()
             }
             
-            if let completion = completion {
-                completion(finished)
-            }
+            completion?(finished)
         })
     }
     
@@ -187,11 +187,8 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     // MARK: LiveChatViewDelegate
     
     @objc func closedChatView() {
-        previousKeyWindow?.makeKeyAndVisible()
-        previousKeyWindow = nil
+        makeWindowHiddenIfNeeded()
         delegate?.chatDismissed?()
-        
-        window.isHidden = true
     }
     
     @objc func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -217,6 +214,12 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         delegate?.chatLoadingFailed?(with: error)
     }
     
+    func overlayWillShow(animated: Bool) {
+        if chatWindowDisplayMode == .viewController {
+            presentChat(animated: animated)
+        }
+    }
+    
     // MARK: WebViewBridgeDelegate
     
     @objc func received(message: LiveChatMessage) {
@@ -228,7 +231,34 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     }
     
     @objc func hideChatWindow() {
-        dismissChat(animated: true)    }
+        dismissChat(animated: true)
+    }
+    
+    // MARK: Helper methods
+    
+    private func makeWindowVisibleIfNeeded() {
+        guard chatWindowDisplayMode == .window else {
+            return
+        }
+        
+        previousKeyWindow = UIApplication.shared.keyWindow
+        if #available(iOS 13.0, *) {
+            if LiveChat.windowScene != nil {
+                window.windowScene = LiveChat.windowScene
+            }
+        }
+        window.makeKeyAndVisible()
+    }
+    
+    private func makeWindowHiddenIfNeeded() {
+        guard chatWindowDisplayMode == .window else {
+            return
+        }
+        
+        previousKeyWindow?.makeKeyAndVisible()
+        previousKeyWindow = nil
+        window.isHidden = true
+    }
 }
 
 private class PassThroughWindow: UIWindow {
