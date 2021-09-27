@@ -18,6 +18,7 @@ enum ChatState {
     func closedChatView()
     func handle(URL: URL)
     func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
+    func chatLoadingFailed(with error: Error)
 }
 
 class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
@@ -108,5 +109,9 @@ class LiveChatOverlayViewController : UIViewController, ChatViewDelegate {
         if let delegate = delegate {
             delegate.handle(URL: URL)
         }
+    }
+    
+    @objc func chatLoadingFailed(with error: Error) {
+        delegate?.chatLoadingFailed(with: error)
     }
 }

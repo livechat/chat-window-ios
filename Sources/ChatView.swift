@@ -13,6 +13,7 @@ import UIKit
 @objc protocol ChatViewDelegate : NSObjectProtocol {
     func closedChatView()
     func handle(URL: URL)
+    func chatLoadingFailed(with error: Error)
 }
 
 let iOSMessageHandlerName = "iosMobileWidget"
@@ -284,6 +285,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
                 DispatchQueue.main.async(execute: { [weak self] in
                     if let `self` = self {
                         if let error = error {
+                            self.delegate?.chatLoadingFailed(with: error)
                             self.displayLoadingError(withMessage: error.localizedDescription)
                             return
                         }
@@ -306,13 +308,15 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
                             if #available(iOS 9.0, *) {
                                 // Changing UserAgent string:
                                 wv.evaluateJavaScript("navigator.userAgent") {(result, error) in
-                                    DispatchQueue.main.async(execute: {
+                                    DispatchQueue.main.async(execute: { [weak self] in
                                         if let userAgent = result as? String {
                                             wv.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.7"
                                             
                                             if LiveChatState.isChatOpenedBefore() {
                                                 wv.load(request)
                                             }
+                                        } else if let err = error {
+                                            self?.delegate?.chatLoadingFailed(with: err)
                                         }
                                     })
                                 }
@@ -346,13 +350,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     }
     
     @objc func close() {
-        dismissChat(animated: true) { (finished) in
-            if finished {
-                if let delegate = self.delegate {
-                    delegate.closedChatView()
-                }
-            }
-        }
+        dismissChat(animated: true)
     }
     
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -361,8 +359,9 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     
     // MARK: WKNavigationDelegate
     
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {        
         print("Did fail navigation error: " + error.localizedDescription)
+        delegate?.chatLoadingFailed(with: error)
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -387,6 +386,7 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
         let error = error as NSError
         
         loadingView.alpha = 1.0
+        delegate?.chatLoadingFailed(with: error)
         
         if !(error.domain == NSURLErrorDomain && error.code == -999) {
             loadingView.displayLoadingError(withMessage: error.localizedDescription)

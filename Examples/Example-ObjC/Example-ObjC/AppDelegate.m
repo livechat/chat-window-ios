@@ -53,16 +53,19 @@
 }
 
 - (void)chatPresented {
-    NSLog(@"Chat dismissed");
-}
-
-- (void)chatDismissed {
     NSLog(@"Chat presented");
 }
 
+- (void)chatDismissed {
+    NSLog(@"Chat dismissed");
+}
+
+- (void)chatLoadingFailedWith:(NSError *)error {
+    NSLog(@"Chat loading failure %@", error.localizedDescription);
+}
 
 - (void)handleWithURL:(NSURL *)URL {
-    [[UIApplication sharedApplication] openURL:URL];
+    [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:nil];
 }
 
 @end

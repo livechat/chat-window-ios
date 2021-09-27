@@ -16,6 +16,7 @@ typealias CustomVariables = [(String, String)]
     @objc optional func handle(URL: URL)
     @objc optional func chatPresented()
     @objc optional func chatDismissed()
+    @objc optional func chatLoadingFailed(with error: Error)
     @objc optional func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
 }
 
@@ -171,7 +172,6 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
                 self.window.isHidden = true
                 
                 UnreadMessagesCounter.resetCounter()
-                self.delegate?.chatDismissed?()
             }
             
             if let completion = completion {
@@ -189,6 +189,7 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     @objc func closedChatView() {
         previousKeyWindow?.makeKeyAndVisible()
         previousKeyWindow = nil
+        delegate?.chatDismissed?()
         
         window.isHidden = true
     }
@@ -210,6 +211,10 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         } else {
             UIApplication.shared.openURL(URL)
         }
+    }
+    
+    func chatLoadingFailed(with error: Error) {
+        delegate?.chatLoadingFailed?(with: error)
     }
     
     // MARK: WebViewBridgeDelegate

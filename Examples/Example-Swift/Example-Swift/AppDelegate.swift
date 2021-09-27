@@ -59,8 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LiveChatDelegate {
         print("Chat dismissed")
     }
     
+    func chatLoadingFailed(with error: Error) {
+        print("Chat loading failure \(error)")
+    }
+    
     func handle(URL: URL) {
-        UIApplication.shared.openURL(URL)
+        UIApplication.shared.open(URL, options: [:], completionHandler: nil)
     }
 }
 
