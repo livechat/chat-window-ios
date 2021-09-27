@@ -22,7 +22,7 @@ func buildUrl(templateURL: String, configuration: LiveChatConfiguration, customV
     }
     
     if configuration.email != "" {
-        let escapedEmail = configuration.email.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let escapedEmail = configuration.email.addingPercentEncoding(withAllowedCharacters: .alphanumerics)
         if let escapedEmail = escapedEmail {
             chatURL = chatURL.appending("&email=" + escapedEmail)
         }
