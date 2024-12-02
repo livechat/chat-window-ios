@@ -26,8 +26,6 @@ enum ChatWindowDisplayMode {
 }
 
 public class LiveChat : NSObject {
-    
-    @available(iOS 13.0, *)
     @objc public static var windowScene: UIWindowScene?
     
     @objc public static var licenseId : String? {
@@ -96,7 +94,11 @@ public class LiveChat : NSObject {
     
     private class func updateConfiguration() {
         if let licenseId = self.licenseId {
-            let conf = LiveChatConfiguration(licenseId: licenseId, groupId: self.groupId ?? "0", name: self.name ?? "", email: self.email ?? "")
+            let conf = LiveChatConfiguration(
+                licenseId: licenseId,
+                groupId: self.groupId ?? "0",
+                name: self.name ?? "",
+                email: self.email ?? "")
             Manager.sharedInstance.configuration = conf
         }
     }
@@ -116,7 +118,12 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     weak var delegate : LiveChatDelegate?
     fileprivate let overlayViewController = LiveChatOverlayViewController()
     fileprivate let window = PassThroughWindow()
-    fileprivate var chatWindowDisplayMode: ChatWindowDisplayMode = .window
+    fileprivate var chatWindowDisplayMode: ChatWindowDisplayMode = .window {
+        didSet {
+            window.rootViewController = chatWindowDisplayMode == .viewController
+                ? nil : overlayViewController
+        }
+    }
     private var previousKeyWindow : UIWindow?
     private let webViewBridge = WebViewBridge()
     static let sharedInstance: Manager = {
@@ -134,9 +141,9 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
         webViewBridge.delegate = self
         overlayViewController.delegate = self
         overlayViewController.webViewBridge = webViewBridge
-        
+
         NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { (notification) in
-            if let keyWindow = UIApplication.shared.keyWindow {
+            if let keyWindow = UIApplication.lastKeyWindow {
                 self.window.frame = keyWindow.frame
             }
         }
@@ -202,12 +209,8 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
                 return
             }
         }
-        
-        if #available(iOS 10, *) {
-            UIApplication.shared.open(URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(URL)
-        }
+
+        UIApplication.shared.open(URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     func chatLoadingFailed(with error: Error) {
@@ -237,24 +240,16 @@ private class Manager : NSObject, LiveChatOverlayViewControllerDelegate, WebView
     // MARK: Helper methods
     
     private func makeWindowVisibleIfNeeded() {
-        guard chatWindowDisplayMode == .window else {
-            return
-        }
-        
-        previousKeyWindow = UIApplication.shared.keyWindow
-        if #available(iOS 13.0, *) {
-            if LiveChat.windowScene != nil {
-                window.windowScene = LiveChat.windowScene
-            }
+        guard chatWindowDisplayMode == .window else { return }
+        previousKeyWindow = UIApplication.lastKeyWindow
+        if LiveChat.windowScene != nil {
+            window.windowScene = LiveChat.windowScene
         }
         window.makeKeyAndVisible()
     }
     
     private func makeWindowHiddenIfNeeded() {
-        guard chatWindowDisplayMode == .window else {
-            return
-        }
-        
+        guard chatWindowDisplayMode == .window else { return }
         previousKeyWindow?.makeKeyAndVisible()
         previousKeyWindow = nil
         window.isHidden = true
@@ -270,4 +265,13 @@ private class PassThroughWindow: UIWindow {
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
     return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}
+
+extension UIApplication {
+    static var lastKeyWindow: UIWindow? {
+        shared
+            .connectedScenes
+            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+            .last
+    }
 }
