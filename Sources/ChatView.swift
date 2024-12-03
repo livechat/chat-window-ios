@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import WebKit
+@preconcurrency import WebKit
 import UIKit
 
 @objc protocol ChatViewDelegate : NSObjectProtocol {
@@ -255,16 +255,12 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     // MARK: Keyboard frame changes
     
     private func frameForSafeAreaInsets() -> CGRect {
-        var safeAreaInsets = UIEdgeInsets.zero
-        if #available(iOS 11.0, *) {
-            safeAreaInsets = self.safeAreaInsets
-        } else {
-            safeAreaInsets = UIEdgeInsets.init(top: UIApplication.shared.statusBarFrame.size.height, left: 0, bottom: 0, right: 0)
-        }
-        let frameForSafeAreaInsets = CGRect(x: safeAreaInsets.left, y: safeAreaInsets.top, width: bounds.size.width - safeAreaInsets.left - safeAreaInsets.right, height: bounds.size.height - safeAreaInsets.top - safeAreaInsets.bottom)
-        
-        return frameForSafeAreaInsets
-    }    
+        CGRect(
+            x: safeAreaInsets.left,
+            y: safeAreaInsets.top,
+            width: bounds.size.width - safeAreaInsets.left - safeAreaInsets.right,
+            height: bounds.size.height - safeAreaInsets.top - safeAreaInsets.bottom)
+    }
     
     private func displayLoadingError(withMessage message: String) {
         DispatchQueue.main.async(execute: { [weak self] in
@@ -304,26 +300,19 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
                         
                         if let url = url, let wv = self.webView {
                             let request = URLRequest(url: url)
-                            
-                            if #available(iOS 9.0, *) {
-                                // Changing UserAgent string:
-                                wv.evaluateJavaScript("navigator.userAgent") {(result, error) in
-                                    DispatchQueue.main.async(execute: { [weak self] in
-                                        if let userAgent = result as? String {
-                                            wv.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.7"
-                                            
-                                            if LiveChatState.isChatOpenedBefore() {
-                                                wv.load(request)
-                                            }
-                                        } else if let err = error {
-                                            self?.delegate?.chatLoadingFailed(with: err)
+                            // Changing UserAgent string:
+                            wv.evaluateJavaScript("navigator.userAgent") {(result, error) in
+                                DispatchQueue.main.async(execute: { [weak self] in
+                                    if let userAgent = result as? String {
+                                        wv.customUserAgent = userAgent + " WebView_Widget_iOS/2.0.7"
+                                        
+                                        if LiveChatState.isChatOpenedBefore() {
+                                            wv.load(request)
                                         }
-                                    })
-                                }
-                            } else {
-                                if LiveChatState.isChatOpenedBefore() {
-                                    wv.load(request)
-                                }
+                                    } else if let err = error {
+                                        self?.delegate?.chatLoadingFailed(with: err)
+                                    }
+                                })
                             }
                         } else {
                             print("error: Invalid url")
@@ -424,9 +413,8 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     func webViewDidClose(_ webView: WKWebView) {
         webView.removeFromSuperview()
     }
-    
-    @available(iOS 10.0, *)
-    func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool {
+
+    private func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKContextMenuElementInfo) -> Bool {
         return false
     }
     

@@ -1,9 +1,8 @@
 //
 //  ViewController.swift
-//  Example-Swift
+//  Example-SPM
 //
-//  Created by Łukasz Jerciński on 06/03/2017.
-//  Copyright © 2017 LiveChat Inc. All rights reserved.
+//  Created by Kamil Szostakowski on 02/12/2024.
 //
 
 import UIKit
@@ -88,4 +87,6 @@ class ViewController: UIViewController, LiveChatDelegate {
         LiveChat.clearSession()
     }
 }
+
+
 
