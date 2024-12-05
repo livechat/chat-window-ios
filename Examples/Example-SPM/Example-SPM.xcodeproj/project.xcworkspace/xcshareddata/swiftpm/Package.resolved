@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/livechat/chat-window-ios",
       "state" : {
-        "revision" : "c3d89a52f4a069b37c5a6b123b592220312dace6",
-        "version" : "2.0.24"
+        "revision" : "af37924dc7aae5c19ac405946df81366e64162d3",
+        "version" : "2.0.25"
       }
     }
   ],

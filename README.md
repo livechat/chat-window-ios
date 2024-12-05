@@ -121,7 +121,7 @@ LiveChat.setVariable(withKey:"Variable name", value:"Some value")
 
 ### Assign chat to specific group
 
-You can route your customers to specific group of agents by providing groupId. More information can be found here: https://www.livechatinc.com/kb/dividing-live-chat-by-group/.
+You can route your customers to specific group of agents by providing groupId. More information can be found here: https://www.livechatinc.com/kb/dividing-live-chat-by-group/. Please pay attention that the `groupId` must be valid otherwise the chat widget may not load properly.
 
 ```swift
 LiveChat.groupId = "77"
