@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="icW-zF-g1W">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="mbs-Fb-abA">
+            <objects>
+                <navigationController id="icW-zF-g1W" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yVW-nq-D4c">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jqR-NS-P9E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PdQ-GN-YN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-906" y="44"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OmC-OV-I0g">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VNt-QL-Bhz">
+                                <rect key="frame" x="48" y="515" width="279" height="123.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSG-5K-5oW">
+                                        <rect key="frame" x="0.0" y="0.0" width="279" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Open Chat"/>
+                                        <connections>
+                                            <action selector="openChatWithStandardPresentation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OQT-fl-fdJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-SN-u00">
+                                        <rect key="frame" x="0.0" y="44.5" width="279" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Open Chat (custom presentation)"/>
+                                        <connections>
+                                            <action selector="openChatWithCustomPresentation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xgl-Vl-M8F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCJ-a4-Va1">
+                                        <rect key="frame" x="0.0" y="89" width="279" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Clear Session"/>
+                                        <connections>
+                                            <action selector="clearSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6UH-sb-kQq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OmC-OV-I0g" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1Bm-av-Xsc"/>
+                            <constraint firstAttribute="trailing" secondItem="OmC-OV-I0g" secondAttribute="trailing" id="1S9-7r-sgo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VNt-QL-Bhz" secondAttribute="bottom" constant="28.5" id="d1P-l7-gDH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OmC-OV-I0g" secondAttribute="bottom" id="ga9-iC-wJQ"/>
+                            <constraint firstItem="VNt-QL-Bhz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nSG-sI-q2j"/>
+                            <constraint firstItem="OmC-OV-I0g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zqp-Cw-lUK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Diu-mX-Job"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-95.200000000000003" y="43.628185907046479"/>
+        </scene>
+    </scenes>
+</document>

@@ -331,10 +331,10 @@ class ChatView : UIView, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHand
     }
     
     func reload() {
-        if let webView = webView {
+        if webView != nil {
             self.loadingView.alpha = 1.0
             self.loadingView.startAnimation()
-            webView.reload()
+            self.delayed_reload()
         }
     }
     
