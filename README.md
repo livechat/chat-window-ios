@@ -20,7 +20,8 @@ iOS chat widget for LiveChat allows you to integrate [LiveChat](https://livechat
 If you use [Carthage](https://github.com/Carthage/Carthage) to manage your dependencies, simply add 'livechat/chat-window-ios' to your `Cartfile`.
 
 ```
-github "livechat/chat-window-ios" ~> 2.0.25
+github "livechat/chat-window-ios" ~> 2.0.26
+github "livechat/chat-window-ios" ~> 2.0.26
 ```
 
 Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have include it in your Carthage framework copying build phase.
@@ -30,7 +31,7 @@ Make sure you have added `LiveChat.framework` to the "_Linked Frameworks and Lib
 If you use [CocoaPods](http://cocoapods.org) to manage your dependencies, simply add LiveChat to your `Podfile`.
 
 ```bash
-pod 'LiveChat', '~> 2.0.25'
+pod 'LiveChat', '~> 2.0.26'
 ```
 
 ### Manual Installation
