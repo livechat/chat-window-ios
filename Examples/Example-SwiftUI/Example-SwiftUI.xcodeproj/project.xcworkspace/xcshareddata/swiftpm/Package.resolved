@@ -1,0 +1,15 @@
+{
+  "originHash" : "b3aaebc9854b887c7ce9cff47bde11d03ff2d20b9b86072a8f62daef41239231",
+  "pins" : [
+    {
+      "identity" : "chat-window-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/livechat/chat-window-ios",
+      "state" : {
+        "revision" : "d73d2bcf26b31d481520bf47f2a7d63114bb59b5",
+        "version" : "2.0.26"
+      }
+    }
+  ],
+  "version" : 3
+}
